@@ -1,0 +1,80 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Post One",
+      "body": "This is the post body",
+      "publishedAt": "2020-10-02"
+    },
+    {
+      "id": "2",
+      "title": "Post Two",
+      "body": "This is the post body",
+      "publishedAt": "10-01-2020"
+    },
+    {
+      "id": "3",
+      "title": "Post Three",
+      "body": "This is the post body",
+      "publishedAt": "10-01-2020"
+    },
+    {
+      "title": "Post Four",
+      "body": "This is the body for post 4",
+      "publishedAt": "2020-10-06",
+      "id": "DdCICG7"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "Name": "Mobile"
+    },
+    {
+      "Name": "Books",
+      "id": "7lRhH_z"
+    },
+    {
+      "id": "2",
+      "Name": "Laptop"
+    },
+    {
+      "Name": "Headphones",
+      "id": "Ezvhh3P"
+    }
+  ],
+  "brands": [
+    {
+      "Name": "Vivo",
+      "categoryId": "1",
+      "id": "YQCdZ9W"
+    },
+    {
+      "Name": "Mi",
+      "categoryId": "1",
+      "id": "KHFRjLW"
+    },
+    {
+      "Name": "OnePlus",
+      "categoryId": "1",
+      "id": "KqUbidd"
+    },
+    {
+      "categoryId": "2",
+      "Name": "HP",
+      "id": "b51Mhre"
+    },
+    {
+      "Name": "Samsung",
+      "categoryId": "1",
+      "id": "1fsrz24"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "John Smith",
+      "email": "john@example.com"
+    }
+  ]
+}
