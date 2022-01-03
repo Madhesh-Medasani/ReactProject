@@ -17,6 +17,7 @@ import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 // import SellerEdit from './components/admin/SellerEdit';
 import SellerBrandList from './components/seller/SellerBrandList'
 import SellerLogin from './components/seller/SellerLogin';
+import SellerProductForn from './components/seller/SellerProductForn';
 function App() {
   return (
     // <Admin dataProvider={restProvider('http://localhost:3000')}>
@@ -49,7 +50,8 @@ function App() {
       <div className='App'>
 
       <Routes>
-        <Route exact path='/seller/brands' element={<SellerBrandList/>} />
+        <Route exact path='/seller/login' element={<SellerLogin/>} />
+        <Route exact path='/seller/createproduct' element={<SellerProductForn/>}/>
       </Routes>
 
 
