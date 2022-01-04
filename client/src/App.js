@@ -15,9 +15,9 @@ import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 // import SellerList from './components/admin/SellerList';
 // import SellerCreate from './components/admin/SellerCreate';
 // import SellerEdit from './components/admin/SellerEdit';
-import SellerBrandList from './components/seller/SellerBrandList'
+import SellerBrandList from './components/seller/SellerBrandList';
 import SellerLogin from './components/seller/SellerLogin';
-import SellerProductForn from './components/seller/SellerProductForn';
+import SellerProductForm from './components/seller/SellerProductForm';
 function App() {
   return (
     // <Admin dataProvider={restProvider('http://localhost:3000')}>
@@ -51,7 +51,8 @@ function App() {
 
       <Routes>
         <Route exact path='/seller/login' element={<SellerLogin/>} />
-        <Route exact path='/seller/createproduct' element={<SellerProductForn/>}/>
+        <Route exact path='/seller/createproduct' element={<SellerProductForm/>}/>
+        <Route exact path='/seller/brands' element={<SellerBrandList/>} />
       </Routes>
 
 

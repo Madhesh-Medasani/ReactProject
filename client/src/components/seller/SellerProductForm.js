@@ -5,7 +5,8 @@ import {Card} from '@mui/material'
 import { Input,InputLabel } from '@material-ui/core'
 import { Autocomplete } from '@mui/material'
 import { TextField } from '@material-ui/core'
-function SellerProductForn() {
+import {connect} from "react-redux"
+function SellerProductForm({brandname}) {
     const [brandsinfo,setBrandsinfo] = useState({
         brand: []
     })
@@ -20,16 +21,22 @@ function SellerProductForn() {
         
     })
     }
-    
+    const seller=brandname
     useEffect(() => {
         fetchdata()
         
-        console.log(brandsinfo)
+        console.log(seller)
     },[])
     const {brand} = brandsinfo
     return (
             <div>        
             <Card sx={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
+                
+            <FormControl>
+                <InputLabel htmlFor="productname">Sleller Name</InputLabel>
+                <Input id="sellername" value={brandname} /> 
+            </FormControl>
+                
             <FormControl>
                 <InputLabel htmlFor="productname">Product Name</InputLabel>
                 <Input id="productname" /> 
@@ -57,4 +64,4 @@ function SellerProductForn() {
     )
 }
 
-export default SellerProductForn
+export default SellerProductForm;
