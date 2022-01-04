@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import MobileFeature from './components/seller/categoryforms/MobileFeature';
 
 // import { Admin, Resource } from 'react-admin'
 // import restProvider from 'ra-data-simple-rest'
@@ -51,7 +52,7 @@ function App() {
 
       <Routes>
         <Route exact path='/seller/login' element={<SellerLogin/>} />
-        <Route exact path='/seller/createproduct' element={<SellerProductForm/>}/>
+        <Route exact path='/seller/createproduct' element={<MobileFeature/>}/>
         <Route exact path='/seller/brands' element={<SellerBrandList/>} />
       </Routes>
 

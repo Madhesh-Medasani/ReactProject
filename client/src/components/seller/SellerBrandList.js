@@ -13,10 +13,14 @@ function SellerBrandList({brandname}) {
     const [brandinfo,setBrandinfo] = useState({
         brand: []
     })
-    const fetchdata = ()=>{
-       return fetch("http://localhost:5000/brands").then((response)=>
+    const [cat,setCat] = useState({
+        category: []
+    })
+    
+    const fetchdata = (cid)=>{
+       return fetch(`http://localhost:5000/categories/${cid}/brands`).then((response)=>
         response.json()).then((data)=>{
-            
+            console.log(data)
             setBrandinfo({
             brand: data
         })
@@ -24,20 +28,36 @@ function SellerBrandList({brandname}) {
         
     })
     }
+
+    const fetchcategories=()=>{
+        return fetch("http://localhost:5000/categories").then((response)=>
+        response.json()).then((data)=>{
+            
+            setCat({
+            category: data})
+        }
+            )
+    }
+    const handleid=(cid)=>{
+        sellerstore.dispatch({type: "sendCategoryid",payload: {cid: cid}});
+        fetchdata(cid)
+        console.log(cid)
+    }
     const handleClick= (b1)=>{
         sellerstore.dispatch({type: "sendBrand",payload: {brand: b1}});
+        
         console.log(b1)
     }    
     useEffect(() => {
-        fetchdata()
         
+        fetchcategories()
         
     },[])
     const {brand} = brandinfo
-    
+    const {category} = cat
     return (
         <div>
-            {   brand.map((b)=>
+            { brand.length >0 &&  brand.map((b)=>
                 <Card sx={{ minWidth: 275 }}>
                 <CardContent>
                   <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
@@ -52,14 +72,33 @@ function SellerBrandList({brandname}) {
                 </CardContent>
               </Card>)
             }
+            { brand.length===0 && 
+                category.map((c)=>
+                <Card sx={{ minWidth: 275 }}>
+                <CardContent>
+                  <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                    {c.Name}
+                    
+                  </Typography>
+                  <CardActions>
+                      <Button onClick={()=>{
+                          handleid(c.id);
+                      }}>select</Button>
+                  </CardActions>
+                </CardContent>
+              </Card>)
+
+                
+            }
             <SellerProductForm brandname={brandname}/>
         </div>
     )
 }
 const mapStateToProps= (state)=>{
     console.log(state.brandReducer.brand)
+    
     return {
         brandname: state.brandReducer.brand
     }
 }
-export default connect(mapStateToProps)(SellerBrandList);
+export default connect(mapStateToProps)(SellerBrandList)

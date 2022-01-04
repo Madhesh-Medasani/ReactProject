@@ -4,17 +4,37 @@
       "id": "1",
       "Name": "Mobile"
     },
-    {
-      "Name": "Books",
-      "id": "7lRhH_z"
-    },
+    
     {
       "id": "2",
       "Name": "Laptop"
     },
     {
       "Name": "Headphones",
-      "id": "Ezvhh3P"
+      "id": "Ezvhh3P"    }
+  ],
+  "features":[
+    {
+      "categoryId":"1",
+      "set":{
+      "RAM": [ 4, 8 , 16],
+      "Storage": [32, 64, 128],
+      "color": ["red","black","silver"]
+      }
+    },
+    {
+      "categoryId":"2",
+      "set":{
+      "RAM":[4, 8, 16, 32],
+      "Storage":[ "512GB HDD", "1TB HDD", "512GB SSD", "1TB HDD + 512GB SSD"]
+      }
+    },
+    {
+      "categoryId": "Ezvhh3P",
+      "set":{        
+      "color":["black","white","grey"],
+      "connector_type": ["wired","wireless"]
+      }
     }
   ],
   "brands": [
