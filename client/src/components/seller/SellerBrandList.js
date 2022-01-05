@@ -9,7 +9,7 @@ import { Typography } from '@mui/material'
 import sellerstore from './sellerstore'
 import {connect} from "react-redux"
 import SellerProductForm from './SellerProductForm'
-function SellerBrandList({brandname}) {
+function SellerBrandList({brandname, sellername}) {
     const [brandinfo,setBrandinfo] = useState({
         brand: []
     })
@@ -57,6 +57,8 @@ function SellerBrandList({brandname}) {
     const {category} = cat
     return (
         <div>
+
+            <h1> {sellername}</h1>
             { brand.length >0 &&  brand.map((b)=>
                 <Card sx={{ minWidth: 275 }}>
                 <CardContent>
@@ -90,7 +92,7 @@ function SellerBrandList({brandname}) {
 
                 
             }
-            <SellerProductForm brandname={brandname}/>
+            <SellerProductForm brandname={brandname} sellername={sellername}/>
         </div>
     )
 }

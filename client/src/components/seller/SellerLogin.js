@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {useNavigate} from 'react-router-dom'
+import sellerstore from './sellerstore';
 
 const theme = createTheme();
 
@@ -19,7 +20,7 @@ export default function SellerLogin() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    
+    let sellername =""
     if( data.get('email').includes('@') && data.get('password').length>=8)
     {
       fetch("http://localhost:5000/sellers")
@@ -29,6 +30,7 @@ export default function SellerLogin() {
             let a= (sellers) => {
                 for (let i=0;i<sellers.length;i++){
                     if(sellers[i].email===data.get('email') && sellers[i].password === data.get('password')){
+                        sellername = sellers[i].name 
                         return true;
                     }
                     
@@ -40,7 +42,7 @@ export default function SellerLogin() {
             if(authenticate)
             {
                 //store.dispatch({type:"loginSuccess"});
-               // store.dispatch({type:"loginUser",payload: {: username}})
+                sellerstore.dispatch({type:"loginSeller",payload: { sellername: sellername }})
                 
                 //return <Navigate to='/home' />
                navigate('/seller/brands')

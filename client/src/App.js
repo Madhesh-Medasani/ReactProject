@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import MobileFeature from './components/seller/categoryforms/MobileFeature';
-
+import {connect} from 'react-redux';
 // import { Admin, Resource } from 'react-admin'
 // import restProvider from 'ra-data-simple-rest'
 // import CategoryList from './components/admin/CategoryList'
@@ -20,7 +20,7 @@ import SellerBrandList from './components/seller/SellerBrandList';
 import SellerLogin from './components/seller/SellerLogin';
 import SellerProductForm from './components/seller/SellerProductForm';
 import SellerSignup from './components/seller/SellerSignup';
-function App() {
+function App({sellername}) {
   return (
     // <Admin dataProvider={restProvider('http://localhost:3000')}>
     //   <Resource
@@ -57,7 +57,7 @@ function App() {
         
         <Route exact path='/seller/login' element={<SellerLogin/>} />
         <Route exact path='/seller/createproduct' element={<MobileFeature/>}/>
-        <Route exact path='/seller/brands' element={<SellerBrandList/>} />
+        <Route exact path='/seller/brands' element={<SellerBrandList sellername={sellername}/>} />
       </Routes>
 
 
@@ -68,4 +68,12 @@ function App() {
   
 }
 
-export default App
+
+const mapStateToProps= (state)=>{
+  console.log(state.sellerReducer.sellername)
+  
+  return {
+      sellername: state.sellerReducer.sellername
+  }
+}
+export default connect(mapStateToProps)(App)

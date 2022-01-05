@@ -110,11 +110,18 @@
       "id": 2
     },
     {
-      "name": "Madhesh",
+      "name": "Madhesh Eletronics",
       "gst": "111222333444555",
       "email": "medasanimadhesh@gmail.com",
       "password": "madhesh123",
       "id": 3
+    },
+    {
+      "name": "satyadev",
+      "gst": "779484684977948",
+      "email": "vallinarasimhaswamy.k19@iiits.in",
+      "password": "Aditya@1234",
+      "id": 4
     }
   ],
   "sellerproduct": []

@@ -6,7 +6,7 @@ import { Input,InputLabel } from '@material-ui/core'
 import { Autocomplete } from '@mui/material'
 import { TextField } from '@material-ui/core'
 import {connect} from "react-redux"
-function SellerProductForm({brandname}) {
+function SellerProductForm({brandname, sellername}) {
     const [brandsinfo,setBrandsinfo] = useState({
         brand: []
     })
@@ -33,24 +33,18 @@ function SellerProductForm({brandname}) {
             <Card sx={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
                 
             <FormControl>
-                <InputLabel htmlFor="productname">Sleller Name</InputLabel>
-                <Input id="sellername" value={brandname} /> 
+                <InputLabel htmlFor="sellername">Seller Name</InputLabel>
+                <Input id="sellername" value={sellername} /> 
             </FormControl>
                 
             <FormControl>
                 <InputLabel htmlFor="productname">Product Name</InputLabel>
                 <Input id="productname" /> 
             </FormControl>
+
             <FormControl>
-            <Autocomplete
-                
-                id="brand-name"
-                options={brand}
-                getOptionLabel={option => option.Name}
-                
-                sx={{ width: 300 }}
-                renderInput={(params) => <TextField {...params} label="brands" />}
-                />
+                <InputLabel htmlFor="productbrand">Product Brand</InputLabel>
+                <Input id="productbrand" value={seller}/> 
             </FormControl>
             <FormControl>
                 <InputLabel htmlFor="productprice">Product Price</InputLabel>
