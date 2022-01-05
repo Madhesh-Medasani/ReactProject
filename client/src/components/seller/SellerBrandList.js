@@ -8,6 +8,7 @@ import { CardContent } from '@mui/material'
 import { Typography } from '@mui/material'
 import sellerstore from './sellerstore'
 import {connect} from "react-redux"
+import Grid from '@mui/material/Grid'
 import SellerProductForm from './SellerProductForm'
 function SellerBrandList({brandname, sellername}) {
     const [brandinfo,setBrandinfo] = useState({
@@ -59,6 +60,9 @@ function SellerBrandList({brandname, sellername}) {
         <div>
 
             <h1> {sellername}</h1>
+            <Grid container columnspacing={12}>
+
+            <Grid>
             { brand.length >0 &&  brand.map((b)=>
                 <Card sx={{ minWidth: 275 }}>
                 <CardContent>
@@ -92,7 +96,14 @@ function SellerBrandList({brandname, sellername}) {
 
                 
             }
+            </Grid>
+            <Grid xs={3}>
+
+            </Grid>
+            <Grid xs={6}>
             <SellerProductForm brandname={brandname} sellername={sellername}/>
+            </Grid>
+            </Grid>
         </div>
     )
 }

@@ -4,7 +4,7 @@ import { FormControl } from '@material-ui/core'
 import { Autocomplete } from '@mui/material'
 import { TextField } from '@material-ui/core'
 export default function MobileFeature() {
-    const [feature, setFeature] = useState({
+    const [features, setFeatures] = useState({
         feature: []
     })
     const cid =1
@@ -13,28 +13,47 @@ export default function MobileFeature() {
             response.json()
         ).then((data)=>{
             console.log(data)
-            setFeature({
+            setFeatures({
                 feature: data
             })
         })
     }
+    
     useEffect(()=>{
         fetchFeature()
+        
     },[])
-    const {features}=feature
+    const {feature}=features
     return (
         <div>
-            <FormControl>
-            <Autocomplete
-                
-                id="mobilefeature"
-                options={features}
-                getOptionLabel={option => option.categoryId}
-                
-                sx={{ width: 300 }}
-                renderInput={(params) => <TextField {...params} label="features" />}
-                />
-            </FormControl>
+            {
+                feature.map((f)=>
+                <FormControl>
+                    <Autocomplete
+                    disablePortal
+                    id="mobileram"
+                    options={f.set.RAM}
+                    sx={{ width: 300 }}
+                    renderInput={(params) => <TextField {...params} label="RAM" />}
+                    />
+                    <Autocomplete
+                    disablePortal
+                    id="mobilestorage"
+                    options={f.set.Storage}
+                    sx={{ width: 300 }}
+                    renderInput={(params) => <TextField {...params} label="Storage" />}
+                    />
+                    <Autocomplete
+                    disablePortal
+                    id="mobilecolor"
+                    options={f.set.color}
+                    sx={{ width: 300 }}
+                    renderInput={(params) => <TextField {...params} label="Colour" />}
+                    />
+                    
+                </FormControl>
+                )
+            }
            
         </div>
     )

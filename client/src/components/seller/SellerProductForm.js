@@ -3,9 +3,7 @@ import { useState, useEffect } from 'react'
 import { FormControl } from '@material-ui/core'
 import {Card} from '@mui/material'
 import { Input,InputLabel } from '@material-ui/core'
-import { Autocomplete } from '@mui/material'
-import { TextField } from '@material-ui/core'
-import {connect} from "react-redux"
+
 function SellerProductForm({brandname, sellername}) {
     const [brandsinfo,setBrandsinfo] = useState({
         brand: []
@@ -50,6 +48,7 @@ function SellerProductForm({brandname, sellername}) {
                 <InputLabel htmlFor="productprice">Product Price</InputLabel>
                 <Input id="productprice"  /> 
             </FormControl>
+            
             </Card>
             </div>
 
