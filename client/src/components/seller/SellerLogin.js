@@ -19,12 +19,10 @@ export default function SellerLogin() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-    fetch("http://localhost:5000/sellers")
+    
+    if( data.get('email').includes('@') && data.get('password').length>=8)
+    {
+      fetch("http://localhost:5000/sellers")
         .then((response) => response.json())
         .then((sellers) =>{ 
 
@@ -39,8 +37,6 @@ export default function SellerLogin() {
             }
             
             let authenticate = a(sellers)
-
-            // let authenticate = data.includes(username+':'+ password);
             if(authenticate)
             {
                 //store.dispatch({type:"loginSuccess"});
@@ -52,11 +48,21 @@ export default function SellerLogin() {
             else
             {
                 //store.dispatch({type:"loginFailure"});
+                alert("Incorrect credentials");
 
             }
            
             
         })
+
+    }
+    else
+    {
+      alert("Invalid input");
+      navigate("/seller/login");
+    }
+    
+    
   };
 
   return (
@@ -108,7 +114,7 @@ export default function SellerLogin() {
             </Button>
             <Grid container>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/seller/signup" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

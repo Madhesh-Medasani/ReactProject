@@ -108,8 +108,14 @@
       "email": "madeshmedasani@gmail.com",
       "password": "madesg",
       "id": 2
+    },
+    {
+      "name": "Madhesh",
+      "gst": "111222333444555",
+      "email": "medasanimadhesh@gmail.com",
+      "password": "madhesh123",
+      "id": 3
     }
-    
   ],
   "sellerproduct": []
 }

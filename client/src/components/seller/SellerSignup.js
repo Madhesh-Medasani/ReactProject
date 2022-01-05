@@ -20,19 +20,24 @@ export default function SellerSignup() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
-    console.log({
-      name: data.get('username'),
-      gst: data.get('gst'),
-      email: data.get('email'),
-      password: data.get('password')
-    });
-     await axios.post("http://localhost:5000/sellers",{
+      if(data.get('email').includes('@') && data.get('password').length>=8 && data.get('username').length>=5 && data.get('gst').length===15)
+      {
+        await axios.post("http://localhost:5000/sellers",{
         name: data.get('username'),
         gst: data.get('gst'),
         email: data.get('email'),
         password: data.get('password')
-      })
+        })
       navigate("/seller/login")
+  
+      }
+      else
+      {
+        alert("Invalid input");
+        navigate("/seller/signup")
+      }
+      
+     
   };
 
   return (
@@ -92,7 +97,7 @@ export default function SellerSignup() {
                   required
                   fullWidth
                   name="password"
-                  label="Password"
+                  label="Password(atleast 8 characters)"
                   type="password"
                   id="password"
                   autoComplete="new-password"
