@@ -1,16 +1,19 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import ButtonGroup from '@mui/material/ButtonGroup'
 import Button from '@mui/material/Button'
 import { Card, CardActions } from '@mui/material'
 import { CardContent } from '@mui/material'
 import { Typography } from '@mui/material'
 import sellerstore from './sellerstore'
 import {connect} from "react-redux"
+import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid'
 import SellerProductForm from './SellerProductForm'
+import MobileFeature from "./categoryforms/MobileFeature";
+import LaptopFeature from "./categoryforms/LaptopFeatures";
 function SellerBrandList({brandname, sellername}) {
+    const [categoryId,setCategoryId] = useState("");
     const [brandinfo,setBrandinfo] = useState({
         brand: []
     })
@@ -42,7 +45,8 @@ function SellerBrandList({brandname, sellername}) {
     const handleid=(cid)=>{
         sellerstore.dispatch({type: "sendCategoryid",payload: {cid: cid}});
         fetchdata(cid)
-        console.log(cid)
+        setCategoryId(cid);
+        console.log(cid);
     }
     const handleClick= (b1)=>{
         sellerstore.dispatch({type: "sendBrand",payload: {brand: b1}});
@@ -56,13 +60,23 @@ function SellerBrandList({brandname, sellername}) {
     },[])
     const {brand} = brandinfo
     const {category} = cat
+
+    const handleSubmit=(event)=>{
+        event.preventDefault();
+        const data = new FormData(event.currentTarget);
+        console.log(data);
+
+    }
     return (
         <div>
+        
 
             <h1> {sellername}</h1>
-            <Grid container columnspacing={12}>
+            {/* <Grid component="form" onSubmit={handleSubmit} noValidate>
+            
+            <Grid container columnspacing={12}> */}
 
-            <Grid>
+            <Grid component="form" onSubmit={handleSubmit} noValidate>
             { brand.length >0 &&  brand.map((b)=>
                 <Card sx={{ minWidth: 275 }}>
                 <CardContent>
@@ -93,17 +107,36 @@ function SellerBrandList({brandname, sellername}) {
                   </CardActions>
                 </CardContent>
               </Card>)
-
-                
             }
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Confirm
+            </Button>
             </Grid>
+
+            {
+                categoryId==1 && <MobileFeature />
+            }
+            {
+                categoryId==2 && <LaptopFeature />
+            }
             <Grid xs={3}>
 
             </Grid>
             <Grid xs={6}>
             <SellerProductForm brandname={brandname} sellername={sellername}/>
             </Grid>
-            </Grid>
+            
+            {/* <Grid xs={6}>
+            <SellerProductForm brandname={brandname} sellername={sellername}/>
+            </Grid> */}
+
+            {/* </Grid>
+            </Grid> */}
         </div>
     )
 }
