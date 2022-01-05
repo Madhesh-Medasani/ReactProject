@@ -19,6 +19,7 @@ import MobileFeature from './components/seller/categoryforms/MobileFeature';
 import SellerBrandList from './components/seller/SellerBrandList';
 import SellerLogin from './components/seller/SellerLogin';
 import SellerProductForm from './components/seller/SellerProductForm';
+import SellerSignup from './components/seller/SellerSignup';
 function App() {
   return (
     // <Admin dataProvider={restProvider('http://localhost:3000')}>
@@ -51,6 +52,9 @@ function App() {
       <div className='App'>
 
       <Routes>
+        
+        <Route exact path='/seller/signup' element={<SellerSignup/>} />
+        
         <Route exact path='/seller/login' element={<SellerLogin/>} />
         <Route exact path='/seller/createproduct' element={<MobileFeature/>}/>
         <Route exact path='/seller/brands' element={<SellerBrandList/>} />

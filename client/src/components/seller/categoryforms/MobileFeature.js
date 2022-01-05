@@ -28,8 +28,8 @@ export default function MobileFeature() {
             <Autocomplete
                 
                 id="mobilefeature"
-                options={features?.set.RAM}
-                getOptionLabel={option => option.Name}
+                options={features}
+                getOptionLabel={option => option.categoryId}
                 
                 sx={{ width: 300 }}
                 renderInput={(params) => <TextField {...params} label="features" />}

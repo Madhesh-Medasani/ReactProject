@@ -4,36 +4,65 @@
       "id": "1",
       "Name": "Mobile"
     },
-    
     {
       "id": "2",
       "Name": "Laptop"
     },
     {
       "Name": "Headphones",
-      "id": "Ezvhh3P"    }
+      "id": "Ezvhh3P"
+    }
   ],
-  "features":[
+  "features": [
     {
-      "categoryId":"1",
-      "set":{
-      "RAM": [ 4, 8 , 16],
-      "Storage": [32, 64, 128],
-      "color": ["red","black","silver"]
+      "categoryId": "1",
+      "set": {
+        "RAM": [
+          4,
+          8,
+          16
+        ],
+        "Storage": [
+          32,
+          64,
+          128
+        ],
+        "color": [
+          "red",
+          "black",
+          "silver"
+        ]
       }
     },
     {
-      "categoryId":"2",
-      "set":{
-      "RAM":[4, 8, 16, 32],
-      "Storage":[ "512GB HDD", "1TB HDD", "512GB SSD", "1TB HDD + 512GB SSD"]
+      "categoryId": "2",
+      "set": {
+        "RAM": [
+          4,
+          8,
+          16,
+          32
+        ],
+        "Storage": [
+          "512GB HDD",
+          "1TB HDD",
+          "512GB SSD",
+          "1TB HDD + 512GB SSD"
+        ]
       }
     },
     {
       "categoryId": "Ezvhh3P",
-      "set":{        
-      "color":["black","white","grey"],
-      "connector_type": ["wired","wireless"]
+      "set": {
+        "color": [
+          "black",
+          "white",
+          "grey"
+        ],
+        "connector_type": [
+          "wired",
+          "wireless"
+        ]
       }
     }
   ],
@@ -80,8 +109,7 @@
       "password": "madesg",
       "id": 2
     }
-  ],
-  "sellerproduct":[
     
-  ]
+  ],
+  "sellerproduct": []
 }

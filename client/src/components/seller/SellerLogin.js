@@ -10,11 +10,12 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import {useNavigate} from 'react-router-dom'
 
 const theme = createTheme();
 
 export default function SellerLogin() {
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -23,6 +24,39 @@ export default function SellerLogin() {
       email: data.get('email'),
       password: data.get('password'),
     });
+    fetch("http://localhost:5000/sellers")
+        .then((response) => response.json())
+        .then((sellers) =>{ 
+
+            let a= (sellers) => {
+                for (let i=0;i<sellers.length;i++){
+                    if(sellers[i].email===data.get('email') && sellers[i].password === data.get('password')){
+                        return true;
+                    }
+                    
+                }
+                return false;
+            }
+            
+            let authenticate = a(sellers)
+
+            // let authenticate = data.includes(username+':'+ password);
+            if(authenticate)
+            {
+                //store.dispatch({type:"loginSuccess"});
+               // store.dispatch({type:"loginUser",payload: {: username}})
+                
+                //return <Navigate to='/home' />
+               navigate('/seller/brands')
+            }
+            else
+            {
+                //store.dispatch({type:"loginFailure"});
+
+            }
+           
+            
+        })
   };
 
   return (
