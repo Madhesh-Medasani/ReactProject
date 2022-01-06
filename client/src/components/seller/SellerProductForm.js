@@ -5,7 +5,11 @@ import {Card} from '@mui/material'
 import { Input,InputLabel } from '@material-ui/core'
 import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
-function SellerProductForm({brandname, sellername}) {
+import MobileFeature from "./categoryforms/MobileFeature";
+import LaptopFeature from "./categoryforms/LaptopFeatures";
+
+
+function SellerProductForm({brandname, sellername, cid}) {
     const [brandsinfo,setBrandsinfo] = useState({
         brand: []
     })
@@ -27,7 +31,10 @@ function SellerProductForm({brandname, sellername}) {
             sellername: fdata.get('sellername'),
             productname: fdata.get('productname'),
             produtbrand: fdata.get('productbrand'),
-            productprice: fdata.get('productprice')
+            productprice: fdata.get('productprice'),
+            ram: fdata.get('ram'),
+            storage: fdata.get('storage'),
+            colour: fdata.get('colour') 
         })
     }
     const seller=brandname
@@ -63,7 +70,12 @@ function SellerProductForm({brandname, sellername}) {
               id="productname"
               autoComplete="productname"
             />
-            
+            {
+                cid==1 && <MobileFeature />
+            }
+            {
+                cid==2 && <LaptopFeature />
+            }
             <TextField
               margin="normal"
               required

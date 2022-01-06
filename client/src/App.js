@@ -6,7 +6,7 @@ import SellerBrandList from './components/seller/SellerBrandList';
 import SellerLogin from './components/seller/SellerLogin';
 import SellerProductForm from './components/seller/SellerProductForm';
 import SellerSignup from './components/seller/SellerSignup';
-import AdminPanel from './components/admin/AdminPanel';
+
 import LaptopFeatures from './components/seller/categoryforms/LaptopFeatures';
 function App({sellername}) {
   return (
@@ -18,7 +18,7 @@ function App({sellername}) {
         
         <Route exact path='/seller/signup' element={<SellerSignup/>} />
         
-        <Route exact path='/admin/*' element={<AdminPanel/>} />
+        
         
         <Route exact path='/seller/login' element={<SellerLogin/>} />
         <Route exact path='/seller/createproduct' element={<LaptopFeatures/>}/>

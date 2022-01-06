@@ -14,9 +14,7 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.24.0",
     "jsx-runtime": "^1.2.0",
-    
     "react": "^17.0.2",
-    
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.6",
     "react-router": "^6.2.1",

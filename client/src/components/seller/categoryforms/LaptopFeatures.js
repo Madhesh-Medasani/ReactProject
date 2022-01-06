@@ -28,7 +28,7 @@ export default function LaptopFeatures() {
         <div>
             {
                 feature.map((f)=>
-                <FormControl>
+                <div>
                     <Autocomplete
                     disablePortal
                     id="Laptopram"
@@ -45,7 +45,7 @@ export default function LaptopFeatures() {
                     />
                     
                     
-                </FormControl>
+                </div>
                 )
             }
            

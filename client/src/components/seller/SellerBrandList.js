@@ -10,9 +10,7 @@ import {connect} from "react-redux"
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid'
 import SellerProductForm from './SellerProductForm'
-import MobileFeature from "./categoryforms/MobileFeature";
-import LaptopFeature from "./categoryforms/LaptopFeatures";
-function SellerBrandList({brandname, sellername}) {
+function SellerBrandList({brandname, sellername, categoryid}) {
     const [categoryId,setCategoryId] = useState("");
     const [brandinfo,setBrandinfo] = useState({
         brand: []
@@ -118,17 +116,12 @@ function SellerBrandList({brandname, sellername}) {
             </Button>
             </Grid>
 
-            {
-                categoryId==1 && <MobileFeature />
-            }
-            {
-                categoryId==2 && <LaptopFeature />
-            }
+            
             <Grid xs={3}>
 
             </Grid>
             <Grid xs={6}>
-            <SellerProductForm brandname={brandname} sellername={sellername}/>
+            <SellerProductForm cid={categoryid}brandname={brandname} sellername={sellername}/>
             </Grid>
             
             {/* <Grid xs={6}>
@@ -144,7 +137,8 @@ const mapStateToProps= (state)=>{
     console.log(state.brandReducer.brand)
     
     return {
-        brandname: state.brandReducer.brand
+        brandname: state.brandReducer.brand,
+        categoryid: state.categoryReducer.cid
     }
 }
 export default connect(mapStateToProps)(SellerBrandList)
