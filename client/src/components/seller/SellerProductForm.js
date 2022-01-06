@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react'
 import { FormControl } from '@material-ui/core'
 import {Card} from '@mui/material'
 import { Input,InputLabel } from '@material-ui/core'
-
+import Button from '@mui/material/Button'
+import TextField from '@mui/material/TextField'
 function SellerProductForm({brandname, sellername}) {
     const [brandsinfo,setBrandsinfo] = useState({
         brand: []
@@ -19,6 +20,16 @@ function SellerProductForm({brandname, sellername}) {
         
     })
     }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const fdata = new FormData(event.currentTarget);
+        console.log({
+            sellername: fdata.get('sellername'),
+            productname: fdata.get('productname'),
+            produtbrand: fdata.get('productbrand'),
+            productprice: fdata.get('productprice')
+        })
+    }
     const seller=brandname
     useEffect(() => {
         fetchdata()
@@ -30,23 +41,60 @@ function SellerProductForm({brandname, sellername}) {
             <div>        
             <Card sx={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
                 
-            <FormControl>
-                <InputLabel htmlFor="sellername">Seller Name</InputLabel>
-                <Input id="sellername" value={sellername} /> 
-            </FormControl>
+            <FormControl component="form" onSubmit={handleSubmit}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="sellername"
+              label="Sellername"
+              name="sellername"
+              autoComplete="sellername"
+              value={sellername}
+              autoFocus
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="productname"
+              label="productname"
+              type="text"
+              id="productname"
+              autoComplete="productname"
+            />
+            
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="productbrand"
+              label="productbrand"
+              type="text"
+              id="productbrand"
+              autoComplete="productbrand"
+              value={brandname}
+            />
+            
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="productprice"
+              label="productprice"
+              type="number"
+              id="productprice"
+              autoComplete="productprice"
+            />
+                <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+                >
+                Submit
+                </Button>
                 
-            <FormControl>
-                <InputLabel htmlFor="productname">Product Name</InputLabel>
-                <Input id="productname" /> 
-            </FormControl>
-
-            <FormControl>
-                <InputLabel htmlFor="productbrand">Product Brand</InputLabel>
-                <Input id="productbrand" value={seller}/> 
-            </FormControl>
-            <FormControl>
-                <InputLabel htmlFor="productprice">Product Price</InputLabel>
-                <Input id="productprice"  /> 
             </FormControl>
             
             </Card>
