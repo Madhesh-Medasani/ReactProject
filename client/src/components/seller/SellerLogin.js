@@ -6,12 +6,29 @@ import TextField from '@mui/material/TextField';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+import Card from "@mui/material/Card"
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {useNavigate} from 'react-router-dom'
 import sellerstore from './sellerstore';
+import Paper from "@mui/material/Paper";
+import "./Sellerlogin.css"
+// import Image from './images/loginBackground.jpeg'; 
+import loginBackground from "../images/loginBackground.jpeg"
+
+// const styles = {
+//   paperContainer: {
+//       backgroundImage: "url(" + loginBackground + ")",
+//       backgroundPosition: 'center',
+//     backgroundSize: 'cover',
+//     backgroundRepeat: 'no-repeat',
+//     width: '100vw',
+//     height: '100vh'
+//   },
+  
+// };
 
 const theme = createTheme();
 
@@ -68,17 +85,45 @@ export default function SellerLogin() {
   };
 
   return (
+    
+    <Container style={{background: 'linear-gradient(to right bottom, #eecda3,#ef629f)',height:"100vh",minHeight : '100vh',width:"100vw",minWidth:"100vw"}}>
+      
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Grid spacing={2} sx={{ height: '100vh' }} wrap="nowrap">
+      <Grid item xs={4}>
+      
+      <Typography variant='h1' style={{fontFamily:'"The Nautigal", cursive'}}>Dream Basket</Typography>
+      <hr
+        style={{
+            color: 'black',
+            backgroundColor: 'black',
+            width:"97vw",
+            height: 5
+        }}
+      />
+      
+       <img src="https://cdn-icons-png.flaticon.com/512/2575/2575886.png" alt="logo" style={{width:"30vw",height:"30vh",marginTop:70,marginLeft:50}}/>
+      
+      
+      </Grid>
+      <Grid item xs={8}>
+  
+      <Container component="main" maxWidth="xs" style={{paddingTop:20,marginLeft:900}}>
+        <Card raised="true" style={{padding:20}}>
         <CssBaseline />
+       
+        
+        
         <Box
           sx={{
-            marginTop: 8,
+
+            marginTop: 5,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
           }}
         >
+          
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
@@ -122,8 +167,19 @@ export default function SellerLogin() {
               </Grid>
             </Grid>
           </Box>
+          
         </Box>
+       
+        </Card>
+        
       </Container>
+      </Grid>
+      </Grid>
+     
     </ThemeProvider>
+    </Container>
+    
+    
+   
   );
 }
