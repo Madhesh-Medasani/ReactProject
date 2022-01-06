@@ -148,6 +148,27 @@
       "productbrand": "HP",
       "productprice": "50000",
       "id": 2
+    },
+    {
+      "sellername": "Madhesh Eletronics",
+      "productname": "GalaxyS20",
+      "ram": "6GB",
+      "storage": "64GB",
+      "colour": "black",
+      "productbrand": "Samsung",
+      "productprice": "20000",
+      "cid": "1",
+      "id": 3
+    },
+    {
+      "sellername": "Madhesh Eletronics",
+      "productname": "HPD600",
+      "ram": "16",
+      "storage": "512GB SSD",
+      "productbrand": "HP",
+      "productprice": "60000",
+      "cid": "2",
+      "id": 4
     }
   ]
 }

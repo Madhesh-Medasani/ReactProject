@@ -35,6 +35,7 @@ function SellerProductForm({brandname, sellername, cid}) {
         //    console.log(pair)
         //     console.log(pair[0] + ': ' + pair[1]);
         }
+        obj["cid"]=cid;
         await axios.post("/sellerproduct",obj);
         console.log(obj);
         console.log({
