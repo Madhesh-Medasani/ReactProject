@@ -34,14 +34,14 @@ export default function LaptopFeatures() {
                     id="Laptopram"
                     options={f.set.RAM}
                     sx={{ width: 300 }}
-                    renderInput={(params) => <TextField {...params} label="RAM" />}
+                    renderInput={(params) => <TextField {...params} label="RAM"name="ram"/>}
                     />
                     <Autocomplete
                     disablePortal
                     id="laptopstorage"
                     options={f.set.Storage}
                     sx={{ width: 300 }}
-                    renderInput={(params) => <TextField {...params} label="Storage" />}
+                    renderInput={(params) => <TextField {...params} label="Storage" name='storage'/>}
                     />
                     
                     

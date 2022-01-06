@@ -27,6 +27,12 @@ function SellerProductForm({brandname, sellername, cid}) {
     const handleSubmit = (event) => {
         event.preventDefault();
         const fdata = new FormData(event.currentTarget);
+        const obj={}
+        console.log(fdata.entries())
+        for (var pair of fdata.entries()) {
+           console.log(pair)
+            console.log(pair[0] + ': ' + pair[1]);
+        }
         console.log({
             sellername: fdata.get('sellername'),
             productname: fdata.get('productname'),
