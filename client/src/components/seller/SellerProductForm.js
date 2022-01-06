@@ -7,6 +7,7 @@ import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
 import MobileFeature from "./categoryforms/MobileFeature";
 import LaptopFeature from "./categoryforms/LaptopFeatures";
+import axios from "axios";
 
 
 function SellerProductForm({brandname, sellername, cid}) {
@@ -24,15 +25,18 @@ function SellerProductForm({brandname, sellername, cid}) {
         
     })
     }
-    const handleSubmit = (event) => {
+    const handleSubmit = async(event) => {
         event.preventDefault();
         const fdata = new FormData(event.currentTarget);
         const obj={}
-        console.log(fdata.entries())
+        //console.log(fdata.entries())
         for (var pair of fdata.entries()) {
-           console.log(pair)
-            console.log(pair[0] + ': ' + pair[1]);
+            obj[pair[0]]=pair[1]
+        //    console.log(pair)
+        //     console.log(pair[0] + ': ' + pair[1]);
         }
+        await axios.post("/sellerproduct",obj);
+        console.log(obj);
         console.log({
             sellername: fdata.get('sellername'),
             productname: fdata.get('productname'),

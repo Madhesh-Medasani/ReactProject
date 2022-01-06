@@ -129,5 +129,25 @@
       "id": 4
     }
   ],
-  "sellerproduct": []
+  "sellerproduct": [
+    {
+      "sellername": "Madhesh Eletronics",
+      "productname": "note8",
+      "ram": "6GB",
+      "storage": "64GB",
+      "colour": "black",
+      "productbrand": "Mi",
+      "productprice": "20000",
+      "id": 1
+    },
+    {
+      "sellername": "Madhesh Eletronics",
+      "productname": "d500",
+      "ram": "8",
+      "storage": "512GB SSD",
+      "productbrand": "HP",
+      "productprice": "50000",
+      "id": 2
+    }
+  ]
 }
