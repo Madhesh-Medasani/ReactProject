@@ -10,6 +10,7 @@ import {connect} from "react-redux"
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid'
 import SellerProductForm from './SellerProductForm'
+import SellerNavbar from './SellerNavbar'
 function SellerBrandList({brandname, sellername, categoryid}) {
     const [categoryId,setCategoryId] = useState("");
     const [brandinfo,setBrandinfo] = useState({
@@ -67,70 +68,67 @@ function SellerBrandList({brandname, sellername, categoryid}) {
     }
     return (
         <div>
+            <SellerNavbar />
+        <div className='row'>
+        
         
 
-            <h1> {sellername}</h1>
+            {/* <h1> {sellername}</h1> */}
             {/* <Grid component="form" onSubmit={handleSubmit} noValidate>
             
             <Grid container columnspacing={12}> */}
+            <Grid container direction="row" justifyContent="space-evenly" alignItems="center">
+            <Grid item style={{marginTop:80}}>
 
-            <Grid component="form" onSubmit={handleSubmit} noValidate>
-            { brand.length >0 &&  brand.map((b)=>
-                <Card sx={{ minWidth: 275 }}>
-                <CardContent>
-                  <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            <div component="form" onSubmit={handleSubmit} noValidate>
+            { brand.length > 0 &&  brand.map((b)=>
+                  
+                
+                  <div style={{marginBottom:50}}>
+                  <Typography variant='h4' color="text.secondary" gutterBottom>
                     {b.Name}
                     
                   </Typography>
-                  <CardActions>
-                      <Button onClick={()=>{
+                 
+                      <Button variant="contained" onClick={()=>{
                           handleClick(b.Name)
                       }}>select</Button>
-                  </CardActions>
-                </CardContent>
-              </Card>)
+                  
+                  </div>
+            ) 
+              
             }
             { brand.length===0 && 
                 category.map((c)=>
-                <Card sx={{ minWidth: 275 }}>
-                <CardContent>
-                  <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                <div style={{marginBottom:50}}>
+                
+                  <Typography variant='h4' color="text.secondary" gutterBottom>
                     {c.Name}
                     
                   </Typography>
-                  <CardActions>
-                      <Button onClick={()=>{
+                 
+                      <Button variant="contained" onClick={()=>{
                           handleid(c.id);
                       }}>select</Button>
-                  </CardActions>
-                </CardContent>
-              </Card>)
+                  
+             </div> )
             }
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Confirm
-            </Button>
-            </Grid>
-
             
-            <Grid xs={3}>
-
+            </div>
             </Grid>
-            <Grid xs={6}>
+            <Grid item>
+    
+  
             <SellerProductForm cid={categoryid}brandname={brandname} sellername={sellername}/>
             </Grid>
             
-            {/* <Grid xs={6}>
-            <SellerProductForm brandname={brandname} sellername={sellername}/>
-            </Grid> */}
-
-            {/* </Grid>
-            </Grid> */}
-        </div>
+            
+            </Grid>
+            </div>
+            
+            </div>
+            
+       
     )
 }
 const mapStateToProps= (state)=>{

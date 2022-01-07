@@ -62,7 +62,7 @@ export default function SellerLogin() {
                 sellerstore.dispatch({type:"loginSeller",payload: { sellername: sellername }})
                 
                 //return <Navigate to='/home' />
-               navigate('/seller/brands')
+               navigate('/seller/home')
             }
             else
             {

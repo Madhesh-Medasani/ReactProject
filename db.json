@@ -169,6 +169,17 @@
       "productprice": "60000",
       "cid": "2",
       "id": 4
+    },
+    {
+      "sellername": "Madhesh Eletronics",
+      "productname": "y17",
+      "productbrand": "Vivo",
+      "productprice": "20000",
+      "ram": "6GB",
+      "storage": "64GB",
+      "colour": "black",
+      "cid": "1",
+      "id": 5
     }
   ]
 }

@@ -1,8 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { FormControl } from '@material-ui/core'
-import {Card} from '@mui/material'
-import { Input,InputLabel } from '@material-ui/core'
+import { FormControl, Input } from '@material-ui/core'
+import { Paper } from '@material-ui/core'
 import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
 import MobileFeature from "./categoryforms/MobileFeature";
@@ -56,12 +55,13 @@ function SellerProductForm({brandname, sellername, cid}) {
     },[])
     const {brand} = brandsinfo
     return (
-            <div>        
-            <Card sx={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
+              
+            
                 
-            <FormControl component="form" onSubmit={handleSubmit}>
-            <TextField
-              margin="normal"
+            <FormControl component="form" onSubmit={handleSubmit} style={{width:'20vw'}}>
+            <Input
+            placeholder='Seller name'
+              margin="dense"
               required
               fullWidth
               id="sellername"
@@ -69,25 +69,21 @@ function SellerProductForm({brandname, sellername, cid}) {
               name="sellername"
               autoComplete="sellername"
               value={sellername}
-              autoFocus
+             // autoFocus
             />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
+            <Input
+             placeholder='Product Name'
+            required
+            fullWidth
               name="productname"
               label="productname"
               type="text"
               id="productname"
               autoComplete="productname"
             />
-            {
-                cid==1 && <MobileFeature />
-            }
-            {
-                cid==2 && <LaptopFeature />
-            }
-            <TextField
+           
+            <Input sx={{borderRadius:20}}
+            placeholder='Product Brand'
               margin="normal"
               required
               fullWidth
@@ -99,7 +95,8 @@ function SellerProductForm({brandname, sellername, cid}) {
               value={brandname}
             />
             
-            <TextField
+            <Input
+            placeholder='Product Price'
               margin="normal"
               required
               fullWidth
@@ -109,6 +106,13 @@ function SellerProductForm({brandname, sellername, cid}) {
               id="productprice"
               autoComplete="productprice"
             />
+
+            {
+                cid==1 && <MobileFeature />
+            }
+            {
+                cid==2 && <LaptopFeature />
+            }
                 <Button
                 type="submit"
                 fullWidth
@@ -120,8 +124,8 @@ function SellerProductForm({brandname, sellername, cid}) {
                 
             </FormControl>
             
-            </Card>
-            </div>
+           
+          
 
             
         

@@ -29,13 +29,15 @@ export default function MobileFeature() {
         <div>
             {
                 feature.map((f)=>
-                <div>
+                    <div>
+                    
+                
                     <Autocomplete
                     disablePortal
                     id="mobileram"
                     name="ram"
                     options={f.set.RAM}
-                    sx={{ width: 300 }}
+                   
                     renderInput={(params) => <TextField {...params} label="RAM" name='ram'/>}
                     />
                     <Autocomplete
@@ -43,7 +45,7 @@ export default function MobileFeature() {
                     id="mobilestorage"
                     name="storage"
                     options={f.set.Storage}
-                    sx={{ width: 300 }}
+                   
                     renderInput={(params) => <TextField {...params} label="Storage" name="storage"/>}
                     />
                     <Autocomplete
@@ -51,11 +53,12 @@ export default function MobileFeature() {
                     id="mobilecolor"
                     name="clour"
                     options={f.set.color}
-                    sx={{ width: 300 }}
+                    
                     renderInput={(params) => <TextField {...params} label="Colour" name="colour"/>}
                     />
+                    </div>
                     
-                </div>
+               
                 )
             }
            

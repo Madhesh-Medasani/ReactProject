@@ -6,8 +6,10 @@ import SellerBrandList from './components/seller/SellerBrandList';
 import SellerLogin from './components/seller/SellerLogin';
 import SellerProductForm from './components/seller/SellerProductForm';
 import SellerSignup from './components/seller/SellerSignup';
+import SellerProductList from './components/seller/SellerProductList';
 
 import LaptopFeatures from './components/seller/categoryforms/LaptopFeatures';
+import SellerHomepage from './components/seller/SellerHomepage';
 function App({sellername}) {
   return (
     
@@ -15,12 +17,10 @@ function App({sellername}) {
       <div className='App'>
 
       <Routes>
-        
-        <Route exact path='/seller/signup' element={<SellerSignup/>} />
-        
-        
-        
         <Route exact path='/seller/login' element={<SellerLogin/>} />
+        <Route exact path='/seller/signup' element={<SellerSignup/>} />
+        <Route exact path="/seller/home" element={<SellerHomepage sellername={sellername}/>} />
+        <Route exact path='/seller/productList' element={<SellerProductList sellername={sellername}/>} />
         <Route exact path='/seller/createproduct' element={<LaptopFeatures/>}/>
         <Route exact path='/seller/brands' element={<SellerBrandList sellername={sellername}/>} />
       </Routes>
