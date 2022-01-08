@@ -96,17 +96,15 @@
       "Name": "Realme",
       "categoryId": "1",
       "id": "ev3Laxi"
+    },
+    {
+      "Name": "DELL",
+      "categoryId": "2",
+      "id": "_Vg2Sx6"
     }
   ],
   "users": [],
   "sellers": [
-    {
-      "name": "Aditya",
-      "gst": "GSTIN665432",
-      "email": "adityakotikalapudi7105@gmail.com",
-      "password": "Adi",
-      "id": 1
-    },
     {
       "name": "madesh",
       "gst": "GSTIN668732",
@@ -180,6 +178,16 @@
       "colour": "black",
       "cid": "1",
       "id": 5
+    }
+  ],
+  "sellerprofile": [
+    {
+      "sellername": "satyadev",
+      "sellerfirstname": "jyothi",
+      "sellerlastname": "nath",
+      "city": "Rajamundry",
+      "address": "opposite raymond showroom",
+      "id": 1
     }
   ]
 }
