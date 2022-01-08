@@ -2,8 +2,6 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import Button from '@mui/material/Button'
-import { Card, CardActions } from '@mui/material'
-import { CardContent } from '@mui/material'
 import { Typography } from '@mui/material'
 import sellerstore from './sellerstore'
 import {connect} from "react-redux"

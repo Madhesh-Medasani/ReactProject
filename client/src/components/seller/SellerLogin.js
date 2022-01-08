@@ -13,10 +13,8 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {useNavigate} from 'react-router-dom'
 import sellerstore from './sellerstore';
-import Paper from "@mui/material/Paper";
+
 import "./Sellerlogin.css"
-// import Image from './images/loginBackground.jpeg'; 
-import loginBackground from "../images/loginBackground.jpeg"
 
 // const styles = {
 //   paperContainer: {
@@ -34,6 +32,7 @@ const theme = createTheme();
 
 export default function SellerLogin() {
   const navigate = useNavigate();
+  //For validating and storing the user information based on formdata and sending sending  user state using sellerstore if details are correct.
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -43,7 +42,7 @@ export default function SellerLogin() {
       fetch("http://localhost:5000/sellers")
         .then((response) => response.json())
         .then((sellers) =>{ 
-
+            //checks if user is present in the list of registerd user in sellerusers
             let a= (sellers) => {
                 for (let i=0;i<sellers.length;i++){
                     if(sellers[i].email===data.get('email') && sellers[i].password === data.get('password')){
@@ -55,18 +54,18 @@ export default function SellerLogin() {
                 return false;
             }
             
-            let authenticate = a(sellers)
+            let authenticate = a(sellers) // returns true if user is pressent
             if(authenticate)
             {
-                //store.dispatch({type:"loginSuccess"});
+                //seller state is send to other componnents after login 
                 sellerstore.dispatch({type:"loginSeller",payload: { sellername: sellername }})
                 
-                //return <Navigate to='/home' />
+                //navigate to seller home page
                navigate('/seller/home')
             }
             else
             {
-                //store.dispatch({type:"loginFailure"});
+                
                 alert("Incorrect credentials");
 
             }
@@ -77,6 +76,7 @@ export default function SellerLogin() {
     }
     else
     {
+      // if detais from form data are inccorect
       alert("Invalid input");
       navigate("/seller/login");
     }

@@ -15,7 +15,13 @@ import SellerCreate from './components/admin/SellerCreate';
 import SellerEdit from './components/admin/SellerEdit';
 function App() {
   return (
+    //React admin Component which runs on the localhost:3001  
+    // Resourse is component for accessing each Model
+    // parameters for Resourse list - Component for listing items the of particular model
+    //create- Component for creating the object for a particul model
+    //edit- Component for edting the object for a particul model
     <Admin dataProvider={restProvider('http://localhost:3001')}>
+        
          <Resource
         name='categories'
         list={CategoryList}

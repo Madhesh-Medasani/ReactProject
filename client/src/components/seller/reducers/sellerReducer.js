@@ -2,7 +2,7 @@ const initialState = {
     sellername: ""
 }
 
-
+//Reducer for exporting the seller name as state after Login
 const sellerReducer =(state=initialState,action)=>{
     switch (action.type){
         case "loginSeller":

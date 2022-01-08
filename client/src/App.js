@@ -11,6 +11,8 @@ import SellerProductList from './components/seller/SellerProductList';
 import LaptopFeatures from './components/seller/categoryforms/LaptopFeatures';
 import SellerHomepage from './components/seller/SellerHomepage';
 function App({sellername}) {
+  //Routing to the urls and the components  are rendered based on url 
+  //Sending sellername to all components dispalyed after login for seller component inteface
   return (
     
     <Router>

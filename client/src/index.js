@@ -5,9 +5,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import sellerstore from './components/seller/sellerstore';
-// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
+// sending store of sellerstore which contains all reducers for state management
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={sellerstore}>

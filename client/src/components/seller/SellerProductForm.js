@@ -1,18 +1,19 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { FormControl, Input } from '@material-ui/core'
-import { Paper } from '@material-ui/core'
+
 import Button from '@mui/material/Button'
-import TextField from '@mui/material/TextField'
 import MobileFeature from "./categoryforms/MobileFeature";
 import LaptopFeature from "./categoryforms/LaptopFeatures";
 import axios from "axios";
 
 
 function SellerProductForm({brandname, sellername, cid}) {
+    //For storing the brands information based on data and updating in {brand: []}
     const [brandsinfo,setBrandsinfo] = useState({
         brand: []
     })
+    // fetch the data of brands and set the data into {brand : []}
     const fetchdata = ()=>{
        return fetch("http://localhost:5000/brands").then((response)=>
         response.json()).then((data)=>{
@@ -24,18 +25,20 @@ function SellerProductForm({brandname, sellername, cid}) {
         
     })
     }
+    //Data from the Form control is stored by handlesubmit which creates the Product object. 
     const handleSubmit = async(event) => {
         event.preventDefault();
         const fdata = new FormData(event.currentTarget);
         const obj={}
-        //console.log(fdata.entries())
+        //fdata contains key value pairs in format ['key','value']
+        //Converting fdata pairs to json
         for (var pair of fdata.entries()) {
             obj[pair[0]]=pair[1]
         //    console.log(pair)
         //     console.log(pair[0] + ': ' + pair[1]);
         }
-        obj["cid"]=cid;
-        await axios.post("/sellerproduct",obj);
+        obj["cid"]=cid; // Storing category id from reducer  and storing in Product Object
+        await axios.post("/sellerproduct",obj); // posting the data to sever using axios
         console.log(obj);
         console.log({
             sellername: fdata.get('sellername'),
@@ -47,17 +50,17 @@ function SellerProductForm({brandname, sellername, cid}) {
             colour: fdata.get('colour') 
         })
     }
-    const seller=brandname
+    const seller=brandname // storing brandname from redux in seller varialble
     useEffect(() => {
         fetchdata()
         
         console.log(seller)
     },[])
-    const {brand} = brandsinfo
+    const {brand} = brandsinfo // storing the array of objects in brand obtained from brandinfo
     return (
               
             
-                
+                // Form for adding product
             <FormControl component="form" onSubmit={handleSubmit} style={{width:'20vw'}}>
             <Input
             placeholder='Seller name'
@@ -68,8 +71,8 @@ function SellerProductForm({brandname, sellername, cid}) {
               label="Sellername"
               name="sellername"
               autoComplete="sellername"
-              value={sellername}
-             // autoFocus
+              value={sellername} // auto fills when state comes from reducer sellerReducer
+             
             />
             <Input
              placeholder='Product Name'
@@ -92,7 +95,7 @@ function SellerProductForm({brandname, sellername, cid}) {
               type="text"
               id="productbrand"
               autoComplete="productbrand"
-              value={brandname}
+              value={brandname} // auto fills when state comes from reducer brandReducer
             />
             
             <Input
@@ -106,13 +109,17 @@ function SellerProductForm({brandname, sellername, cid}) {
               id="productprice"
               autoComplete="productprice"
             />
+            
+            {
+                cid==1 && <MobileFeature /> //Form for Mobile features
+            }
+            {
+                cid==2 && <LaptopFeature /> // Form for Laptop features
+            }
+            {
+                
+            }
 
-            {
-                cid==1 && <MobileFeature />
-            }
-            {
-                cid==2 && <LaptopFeature />
-            }
                 <Button
                 type="submit"
                 fullWidth

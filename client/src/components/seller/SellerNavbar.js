@@ -11,13 +11,13 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { useNavigate } from 'react-router';
+
 import { Link } from '@material-ui/core';
 
 const pages = ['Products', 'Add Product', 'Orders'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-
+//NavBar for SellerInterface
 
  
 const SellerNavbar = () => {
@@ -104,30 +104,30 @@ const SellerNavbar = () => {
                 <Link href='/seller/productlist' style={{ textDecoration: 'none' }}>
               <Button
                
-                //onClick={handleCloseNavMenu}
+                
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {/* {page} */}
+                
                 Products
               </Button>
               </Link>
               <Link href='/seller/brands' style={{ textDecoration: 'none' }}>
               <Button
                
-                //onClick={handleCloseNavMenu}
+                
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {/* {page} */}
+                
                 Add Product
               </Button>
               </Link>
               <Link href='/seller/brands' style={{ textDecoration: 'none' }}>
               <Button
                 
-                //onClick={handleCloseNavMenu}
+                
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {/* {page} */}
+                
                 Orders
               </Button>
               </Link>
