@@ -2,9 +2,7 @@ import React from "react";
 import SellerNavbar from "./SellerNavbar"
 import { connect } from "react-redux";
 import { Box, Button, Typography } from "@material-ui/core";
-import { CardMedia } from "@material-ui/core";
-import { CardContent } from "@material-ui/core";
-import { Card } from "@material-ui/core";
+
 import Grid from "@mui/material/Grid"
 
 const SellerHomepage = ({sellername}) => {
@@ -15,14 +13,6 @@ const SellerHomepage = ({sellername}) => {
         <SellerNavbar/>
         
         
-        {/* <Grid direction="row" justifyContent="space-evenly" alignItems="center">
-        <Grid item>
-        <Typography variant="h4">Hi {sellername} ,.</Typography>
-        </Grid>
-        <Grid item>
-        <Typography variant="h4">Hi {sellername} ,Thanks for joining our journey of Dream Basket. You can add your product by clicking the following button.</Typography>
-        </Grid>
-        </Grid> */}
         <Grid container spacing={2} justifyContent="space-evenly" alignItems="center">
         <Grid item xs={4}>
         <Typography style={{marginLeft:50,fontFamily:'"Kaushan Script", cursive'}} variant="h4">Hi {sellername} ,thanks for joining our journey of Dream Basket. You can add your product by clicking the following button.</Typography>

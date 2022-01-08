@@ -11,11 +11,11 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import {useNavigate} from "react-router-dom"
 
-import { Link } from '@material-ui/core';
 
 const pages = ['Products', 'Add Product', 'Orders'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+//const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 //NavBar for SellerInterface
 
@@ -39,7 +39,7 @@ const SellerNavbar = () => {
     const handleCloseUserMenu = () => {
       setAnchorElUser(null);
     };
-  
+    const navigate =useNavigate();
     return (
         <AppBar position="static">
       <Container maxWidth="xl">
@@ -101,8 +101,14 @@ const SellerNavbar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             
-                <Link href='/seller/productlist' style={{ textDecoration: 'none' }}>
-              <Button
+                
+              <Button 
+
+              onClick={
+                ()=>{
+                  navigate("/seller/productList")
+                }
+              }
                
                 
                 sx={{ my: 2, color: 'white', display: 'block' }}
@@ -110,18 +116,20 @@ const SellerNavbar = () => {
                 
                 Products
               </Button>
-              </Link>
-              <Link href='/seller/brands' style={{ textDecoration: 'none' }}>
+              
+              
               <Button
-               
+               onClick={()=>{
+                navigate("/seller/brands")    
+               }}
                 
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 
                 Add Product
               </Button>
-              </Link>
-              <Link href='/seller/brands' style={{ textDecoration: 'none' }}>
+              
+              
               <Button
                 
                 
@@ -130,7 +138,7 @@ const SellerNavbar = () => {
                 
                 Orders
               </Button>
-              </Link>
+              
 
         
           </Box>
@@ -157,11 +165,19 @@ const SellerNavbar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+              
+                <MenuItem>
+                  <Button
+                  onClick={
+                    ()=>{
+                      navigate("/seller/profile")
+                    }
+                  }
+                  >
+                  <Typography textAlign="center">Profile</Typography>
+                  </Button>
                 </MenuItem>
-              ))}
+              
             </Menu>
           </Box>
         </Toolbar>
