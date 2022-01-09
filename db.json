@@ -2,15 +2,21 @@
   "categories": [
     {
       "id": "1",
-      "Name": "Mobile"
+      "Name": "Mobile",
+      "image": "https://images.unsplash.com/photo-1609081219090-a6d81d3085bf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1326&q=80",
+      "desc": "Mobile phones are merely a part of our lives. It's to stay connected with friends, family and outsiders."
     },
     {
       "id": "2",
-      "Name": "Laptop"
+      "Name": "Laptop",
+      "image": "https://images.unsplash.com/photo-1609081219090-a6d81d3085bf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1326&q=80",
+      "desc": "A laptop, laptop computer, or notebook computer is a small, portable personal computer (PC) with a screen and alphanumeric keyboard."
     },
     {
       "Name": "Headphones",
-      "id": "Ezvhh3P"
+      "id": "Ezvhh3P",
+      "image": "https://images.unsplash.com/photo-1609081219090-a6d81d3085bf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1326&q=80",
+      "desc": "Headphones are a pair of small loudspeaker drivers worn on or around the head over a user's ears."
     }
   ],
   "features": [
@@ -103,7 +109,16 @@
       "id": "_Vg2Sx6"
     }
   ],
-  "users": [],
+  "users": [
+    {
+      "name": "varshini123456",
+      "firstName": "Kota",
+      "lastName": "Varshini",
+      "email": "kvsvarshini23@gmail.com",
+      "password": "varshini23",
+      "id": 1
+    }
+  ],
   "sellers": [
     {
       "name": "madesh",
@@ -178,6 +193,16 @@
       "colour": "black",
       "cid": "1",
       "id": 5
+    },
+    {
+      "sellername": "Madhesh Eletronics",
+      "productname": "HP D45678",
+      "productbrand": "HP",
+      "productprice": "450000",
+      "ram": "32",
+      "storage": "1TB HDD + 512GB SSD",
+      "cid": "2",
+      "id": 6
     }
   ],
   "sellerprofile": [

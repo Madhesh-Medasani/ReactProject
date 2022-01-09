@@ -5,6 +5,9 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import sellerstore from './components/seller/sellerstore';
+// import 'semantic-ui-css/semantic.min.css'
+// import 'semantic-ui-react'
+
 
 // sending store of sellerstore which contains all reducers for state management
 ReactDOM.render(
