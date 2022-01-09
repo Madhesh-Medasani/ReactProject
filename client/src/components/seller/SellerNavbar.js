@@ -134,6 +134,11 @@ const SellerNavbar = () => {
                 
                 
                 sx={{ my: 2, color: 'white', display: 'block' }}
+                onClick={
+                  ()=>{
+                    navigate("/seller/orders")
+                  }
+                }
               >
                 
                 Orders

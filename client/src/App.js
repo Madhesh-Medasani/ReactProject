@@ -14,6 +14,8 @@ import Orders from './components/user/Order/Orders'
 import Products from './components/user/Shopping/Products';
 import SellerProfileDetails from './components/seller/SellerProfileDetails'
 import UserProfileDetails from './components/user/UserHomepage/UserProfileDetails';
+import Cart from './components/user/Shopping/Cart'
+import SellerOrders from './components/seller/SellerOrders';
 
 function App({sellername,username}) {
   //Routing to the urls and the components  are rendered based on url 
@@ -30,6 +32,8 @@ function App({sellername,username}) {
         <Route exact path='/seller/productList' element={<SellerProductList sellername={sellername}/>} />
         <Route exact path='/seller/brands' element={<SellerBrandList sellername={sellername}/>} />
         <Route exact path='/seller/profile' element={<SellerProfileDetails sellername={sellername}/>} />
+        <Route exact path='/seller/orders' element={<SellerOrders sellername={sellername}/>} />
+
 
         <Route exact path='/' element={<Home/>} />
         <Route exact path='/user/home' element={<Homepage username={username} />} />
@@ -38,6 +42,8 @@ function App({sellername,username}) {
         <Route exact path='/user/orders' element={<Orders username={username}/>} />
         <Route exact path='/user/products/:value' element={<Products username={username}/>} />
         <Route exact path='/user/profile' element={<UserProfileDetails username={username}/>} />
+        <Route exact path='/user/cart' element={<Cart username={username}/>} />
+
 
 
 

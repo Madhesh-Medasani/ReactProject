@@ -55,7 +55,7 @@ function Body(){
                                     <div className="col-md-4 col-10 mx-auto">
                                         <NavLink to={`/user/products/${ c.id }`} className="link-cards">
                                             <div className="card link-card" >
-                                                <img src="https://tse3.mm.bing.net/th?id=OIP._0Cu63U3TlJCoJ3kZcgNoAHaEz&pid=Api&P=0&w=259&h=168" className="card-img-top images" alt="headphones" />
+                                                <img src="https://tse3.mm.bing.net/th?id=OIP._0Cu63U3TlJCoJ3kZcgNoAHaEz&pid=Api&P=0&w=259&h=168" className="card-img-top images" alt="headphones" style={{width: "305.587px !important"}} />
                                                     <div className="card-body">
                                                         <h5 className="card-title category">{c.Name}</h5>
                                                         <p className="card-text">{c.desc}</p>

@@ -263,5 +263,29 @@
       "address": "Sapthagiri Enclave,Pappula street,Nellore",
       "id": 1
     }
+  ],
+  "cart" : [
+    {
+      "sellername": "Madhesh Eletronics",
+      "productname": "HPD600",
+      "productbrand": "HP",
+      "productprice": "60000",
+      "ram": "16",
+      "storage": "512GB SSD",
+      "cid": "2",
+      "quantity": 1,
+      "id": 4
+    },
+    {
+      "sellername": "Madhesh Eletronics",
+      "productname": "HPD600",
+      "productbrand": "HP",
+      "productprice": "60000",
+      "ram": "16",
+      "storage": "512GB SSD",
+      "cid": "2",
+      "quantity": 1,
+      "id": 5
+    }
   ]
 }

@@ -56,7 +56,7 @@ function HeaderButtons(props){
 
     return (
         <Box className={classes.wrapper}>
-            <Typography className = {classes.login}>Hi,{props.username}</Typography>
+            <Typography >Hi,{props.username}</Typography>
             <NavLink to="/user/profile"><AccountCircleIcon /></NavLink>
 
             <Box className={classes.container}>
