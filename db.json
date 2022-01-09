@@ -117,6 +117,22 @@
       "email": "kvsvarshini23@gmail.com",
       "password": "varshini23",
       "id": 1
+    },
+    {
+      "name": "nishita",
+      "firstName": "UPPALA",
+      "lastName": "NISHITA",
+      "email": "nishitauppala11@gmail.com",
+      "password": "12345678",
+      "id": 2
+    },
+    {
+      "name": "nishita",
+      "firstName": "UPPALA",
+      "lastName": "NISHITA",
+      "email": "nishitauppala11@gmail.com",
+      "password": "12345678",
+      "id": 3
     }
   ],
   "sellers": [
@@ -140,6 +156,13 @@
       "email": "vallinarasimhaswamy.k19@iiits.in",
       "password": "Aditya@1234",
       "id": 4
+    },
+    {
+      "name": "nishita",
+      "gst": "111111111111111",
+      "email": "nishitauppala11@gmail.com",
+      "password": "12345678",
+      "id": 5
     }
   ],
   "sellerproduct": [

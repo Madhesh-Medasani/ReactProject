@@ -8,6 +8,8 @@ import {
   DeleteButton,
 } from 'react-admin'
 
+
+// displaying list of sellers
 const SellerList = (props) => {
   return (
     <List {...props}>

@@ -7,7 +7,8 @@ import {
   EditButton,
   DeleteButton,
 } from 'react-admin'
-
+ 
+// displaying category list
 const CategoryList = (props) => {
   return (
     <List {...props}>

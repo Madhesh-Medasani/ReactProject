@@ -1,6 +1,7 @@
 import React from 'react'
 import { Create, SimpleForm, TextInput } from 'react-admin'
 
+// Creating a seller by taking in the required fields
 
 const SellerCreate = (props) => {
   return (

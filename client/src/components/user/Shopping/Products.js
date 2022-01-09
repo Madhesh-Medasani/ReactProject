@@ -10,6 +10,7 @@ import { TextField } from '@mui/material';
 
 
 
+// fetching seller products
 const Products = (props) => {
     const classes = useStyles();
 
@@ -33,7 +34,7 @@ const Products = (props) => {
      })
      }
 
-
+// fetching categories 
      const [brandinfo,setBrandinfo] = useState({
         brands: []
     })
@@ -72,13 +73,15 @@ const Products = (props) => {
 
     
     let pro =[];
-
+// checking product category id with categries
     for (let i=0; i< products.length; i++){
         if(products[i].cid === cat){
             
             pro.push(products[i])
         }
     }
+
+ 
 
     return (
         <div>
@@ -87,6 +90,8 @@ const Products = (props) => {
             
 
             <main className={classes.content}>
+
+            
 
             
                 
@@ -111,5 +116,10 @@ const Products = (props) => {
         </div>
     )
 }
+
+
+
+
+
 
 export default Products;

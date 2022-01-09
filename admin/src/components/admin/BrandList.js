@@ -8,6 +8,8 @@ import {
   DeleteButton,
 } from 'react-admin'
 
+
+// displaying the list of brand
 const BrandList = (props) => {
     console.log(props);
     

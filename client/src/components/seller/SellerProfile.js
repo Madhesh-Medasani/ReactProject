@@ -13,7 +13,7 @@ function SellerProfile({sellername}) {
     
 
     const navigate = useNavigate()
-
+    // taking the details from seller for profile and saving 
     const save = () => {
         var addressInfo = {
             "sellername" : sellername,

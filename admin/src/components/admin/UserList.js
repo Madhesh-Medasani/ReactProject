@@ -7,7 +7,7 @@ import {
   EditButton,
   DeleteButton,
 } from 'react-admin'
-// displays the List of Users in the 
+// displays the List of Users 
 const UserList = (props) => {
   return (
     <List {...props}>

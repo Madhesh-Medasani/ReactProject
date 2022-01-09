@@ -4,6 +4,9 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import SearchBar from './SearchBar';
 import HeaderButtons from './HeaderButtons';
 
+
+
+                        // header for user homepage
 const useStyle = makeStyles({
     header: {
         background: "skyblue",

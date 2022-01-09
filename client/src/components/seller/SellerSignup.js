@@ -14,12 +14,14 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 const theme = createTheme();
 
+// Seller signup page
 export default function SellerSignup() {
     const navigate = useNavigate();
     const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
+    // Giving conditiion on the input user is entering
       if(data.get('email').includes('@') && data.get('password').length>=8 && data.get('username').length>=5 && data.get('gst').length===15)
       {
         await axios.post("http://localhost:5000/sellers",{

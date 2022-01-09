@@ -1,6 +1,8 @@
 import React from 'react'
 import { Edit, SimpleForm, TextInput } from 'react-admin'
 
+
+// Editing the brand name
 const BrandEdit = (props) => {
     
   return (

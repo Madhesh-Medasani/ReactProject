@@ -56,8 +56,12 @@ function Orders(){
 
     return (
         <>
+            {/* importing header from user homepage */}
             <Header />
             <br />
+
+            {/* code for orders page */}
+
             <div className="order-margin">
                 <center>
                     <div className="order-border">

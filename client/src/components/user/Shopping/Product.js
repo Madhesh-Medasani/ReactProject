@@ -4,6 +4,8 @@ import { AddShoppingCart } from '@material-ui/icons';
 import { mergeClasses } from "@material-ui/styles";
 import useStyles from "./Styles";
 
+// displaying the product with its features
+
 const Product = ({product}) => {
     const classes =useStyles();
     return (

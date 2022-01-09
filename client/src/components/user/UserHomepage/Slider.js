@@ -7,6 +7,7 @@ import image3 from "./Images/h4-slide3-i2.png"
 import image4 from "./Images/h4-slide4-i3.png"
 import image5 from "./Images/h4-slide5-i4.png"
 
+//slider for catgory page
 
 function Slider(){
     return (

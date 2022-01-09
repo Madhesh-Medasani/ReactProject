@@ -3,6 +3,7 @@ import {NavLink} from "react-router-dom"
 
 function Product(props){
     return (
+        // displaying single product
         <>
             <div className="single-product col">
                 <div className="product-f-image">

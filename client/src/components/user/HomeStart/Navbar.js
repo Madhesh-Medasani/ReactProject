@@ -5,6 +5,9 @@ import "./CSS/Navbar.css"
 function Navbar(){
     return (
         <>
+
+            {/* Navigation bar for home page for both users and sellers */}
+
             <div className="container-fluid nav_bg">
                 <div className="row">
                     <div className="col-10 mx-auto">

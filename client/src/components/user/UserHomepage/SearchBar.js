@@ -26,6 +26,8 @@ const useStyle = makeStyles((theme) => ({
       },
 }))
 
+// functionality given to search bar
+
 function SearchBar(){
     const classes = useStyle();
     return (

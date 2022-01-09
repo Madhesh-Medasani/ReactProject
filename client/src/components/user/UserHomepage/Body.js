@@ -14,7 +14,7 @@ function Body(){
         categories: []
     })
 
-
+// fetching categories 
     const fetchdata = ()=>{
         return fetch("http://localhost:5000/categories").then((response)=>
          response.json()).then((data)=>{
@@ -36,6 +36,8 @@ function Body(){
 
     return (
         <>
+
+        {/* displaying categories with some design included */}
             <div className="slide">
                 <Slider />
             </div>

@@ -7,7 +7,9 @@ import { NavLink } from 'react-router-dom';
 function Home(){
     return (
         <div>
-            <Navbar />
+            {/* importing navbar from Navbar.js */}
+            <Navbar /> 
+            {/* home page  */}
             <section id="header" className="">
                 <div className="container-fluid nav_bg">
                     <div className="row">
@@ -26,6 +28,7 @@ function Home(){
                                        <h6 className='my-3 text'>
                                             We are the market-leading e-commerce platform and market people will get more profit 
                                         </h6>
+                                        {/* opens sellers sign up page */}
                                         <div className='mt-3'>
                                             <NavLink to="/seller/login" className='btn btn-outline-primary'>Start Selling</NavLink>
                                         </div>
@@ -38,7 +41,7 @@ function Home(){
                                         <div>
                                             <h6 className='my-3 text'>You will get expected quality products and you can choose the products with low price</h6>
                                         </div>
-
+                                        {/* opens buyers signup page */}
                                         <div className='mt-3'>
                                             <NavLink to="/user/signin" className='btn btn-outline-primary'>Start Buying</NavLink>
                                         </div>

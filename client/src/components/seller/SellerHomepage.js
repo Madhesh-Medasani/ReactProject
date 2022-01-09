@@ -5,6 +5,8 @@ import { Box, Button, Typography } from "@material-ui/core";
 
 import Grid from "@mui/material/Grid"
 
+
+//Creating home page for seller after signin
 const SellerHomepage = ({sellername}) => {
 
     return ( 

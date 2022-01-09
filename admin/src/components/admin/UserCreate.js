@@ -1,6 +1,8 @@
 import React from 'react'
 import { Create, SimpleForm, TextInput } from 'react-admin'
 
+
+// creating a user by taking required fields
 const UserCreate = (props) => {
   return (
     <Create title='Create a User' {...props}>

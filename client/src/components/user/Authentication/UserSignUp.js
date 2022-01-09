@@ -22,6 +22,8 @@ import { useNavigate } from 'react-router-dom';
 
 const theme = createTheme();
 
+
+// User signup page
 function UserSignUp(){
 
     const navigate = useNavigate();
@@ -30,7 +32,7 @@ function UserSignUp(){
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         // eslint-disable-next-line no-console
-        if( data.get('username').length >=8 && data.get('email').includes('@') && data.get('password').length>=8){
+        if( data.get('username').length >=5 && data.get('email').includes('@') && data.get('password').length>=8){
             await axios.post("http://localhost:5000/users",{
                 name: data.get('username'),
                 firstName: data.get('firstName'),

@@ -1,6 +1,8 @@
 import React from 'react'
 import { Create, SimpleForm, TextInput, ReferenceInput,SelectInput,required,AutocompleteInput} from 'react-admin'
 
+// used for creating a brand
+
 const BrandCreate = (props) => {
   return (
     <Create title='Create a Brand' {...props}>

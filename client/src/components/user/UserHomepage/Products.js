@@ -8,6 +8,8 @@ import img6 from "./Images/product-6.jpg"
 import {NavLink} from "react-router-dom"
 import "./CSS/responsive.css"
 
+
+// displaying products
 function Products(){
     return (
         <>
