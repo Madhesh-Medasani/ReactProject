@@ -54,6 +54,11 @@
           "1TB HDD",
           "512GB SSD",
           "1TB HDD + 512GB SSD"
+        ],
+        "color": [
+          "black",
+          "silver",
+          "grey"
         ]
       }
     },
@@ -107,6 +112,21 @@
       "Name": "DELL",
       "categoryId": "2",
       "id": "_Vg2Sx6"
+    },
+    {
+      "Name": "Boat",
+      "categoryId": "Ezvhh3P",
+      "id": "3"
+    },
+    {
+      "Name": "Apple",
+      "categoryId": "Ezvhh3P",
+      "id": "4"
+    },
+    {
+      "Name": "OnePlus",
+      "categoryId": "Ezvhh3P",
+      "id": "5"
     }
   ],
   "users": [
@@ -163,69 +183,49 @@
       "email": "nishitauppala11@gmail.com",
       "password": "12345678",
       "id": 5
+    },
+    {
+      "name": "varshini",
+      "gst": "GSTIN1234567890",
+      "email": "kvsvarshini23@gmail.com",
+      "password": "varshini23",
+      "id": 6
     }
   ],
   "sellerproduct": [
     {
       "sellername": "Madhesh Eletronics",
-      "productname": "note8",
-      "ram": "6GB",
-      "storage": "64GB",
-      "colour": "black",
-      "productbrand": "Mi",
-      "productprice": "20000",
+      "productname": "Airpods 55",
+      "productbrand": "Apple",
+      "productprice": "3589",
+      "productquantity": "2",
+      "color": "white",
+      "connectorType": "wireless",
+      "cid": "Ezvhh3P",
       "id": 1
     },
     {
       "sellername": "Madhesh Eletronics",
-      "productname": "d500",
-      "ram": "8",
-      "storage": "512GB SSD",
-      "productbrand": "HP",
-      "productprice": "50000",
+      "productname": "Earphones",
+      "productbrand": "OnePlus",
+      "productprice": "567",
+      "productquantity": "5",
+      "color": "black",
+      "connectorType": "wired",
+      "cid": "Ezvhh3P",
       "id": 2
     },
     {
       "sellername": "Madhesh Eletronics",
-      "productname": "GalaxyS20",
-      "ram": "6GB",
-      "storage": "64GB",
-      "colour": "black",
-      "productbrand": "Samsung",
-      "productprice": "20000",
+      "productname": "Vivo 5080",
+      "productbrand": "Vivo",
+      "productprice": "45839",
+      "productquantity": "6",
+      "ram": "8GB",
+      "storage": "128GB",
+      "colour": "silver",
       "cid": "1",
       "id": 3
-    },
-    {
-      "sellername": "Madhesh Eletronics",
-      "productname": "HPD600",
-      "ram": "16",
-      "storage": "512GB SSD",
-      "productbrand": "HP",
-      "productprice": "60000",
-      "cid": "2",
-      "id": 4
-    },
-    {
-      "sellername": "Madhesh Eletronics",
-      "productname": "y17",
-      "productbrand": "Vivo",
-      "productprice": "20000",
-      "ram": "6GB",
-      "storage": "64GB",
-      "colour": "black",
-      "cid": "1",
-      "id": 5
-    },
-    {
-      "sellername": "Madhesh Eletronics",
-      "productname": "HP D45678",
-      "productbrand": "HP",
-      "productprice": "450000",
-      "ram": "32",
-      "storage": "1TB HDD + 512GB SSD",
-      "cid": "2",
-      "id": 6
     }
   ],
   "sellerprofile": [
@@ -235,6 +235,32 @@
       "sellerlastname": "nath",
       "city": "Rajamundry",
       "address": "opposite raymond showroom",
+      "id": 1
+    },
+    {
+      "sellername": "Madhesh Eletronics",
+      "sellerfirstname": "Kota",
+      "sellerlastname": "Varshini",
+      "city": "NELLORE",
+      "address": "Sapthagiri Enclave,Pappula street,Nellore",
+      "id": 2
+    },
+    {
+      "sellername": "varshini",
+      "sellerfirstname": "Kota",
+      "sellerlastname": "Varshini",
+      "city": "NELLORE",
+      "address": "Sapthagiri Enclave,Pappula street,Nellore",
+      "id": 3
+    }
+  ],
+  "userprofile": [
+    {
+      "username": "varshini123456",
+      "userfirstname": "Kota",
+      "userlastname": "Varshini",
+      "city": "NELLORE",
+      "address": "Sapthagiri Enclave,Pappula street,Nellore",
       "id": 1
     }
   ]

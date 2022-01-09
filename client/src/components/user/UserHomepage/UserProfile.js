@@ -4,7 +4,7 @@ import { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
 import {connect} from 'react-redux'
 
-function SellerProfile({sellername}) {
+function UserProfile({username}) {
     const [firstName, processFirstName] = useState("");
     const [lastName, processLastName] = useState("");
 
@@ -13,19 +13,19 @@ function SellerProfile({sellername}) {
     
 
     const navigate = useNavigate()
-    // taking the details from seller for profile and saving 
+    // taking the details from user for profile and saving 
     const save = () => {
         var addressInfo = {
-            "sellername" : sellername,
-            "sellerfirstname" : firstName,
-            "sellerlastname" : lastName,
+            "username" : username,
+            "userfirstname" : firstName,
+            "userlastname" : lastName,
             "city" : city,
             "address" : address
         }
 
-        axios.post("http://localhost:5000/sellerprofile", addressInfo)
+        axios.post("http://localhost:5000/userprofile", addressInfo)
 
-        navigate('/seller/home')
+        navigate('/user/home')
 
     }
     return (
@@ -67,10 +67,10 @@ function SellerProfile({sellername}) {
 }
 const mapStateToProps = (state) => {
     return {
-        sellername : state.sellerReducer.sellername
+        username : state.userReducer.username
     }
 }
 
 
 
-export default connect(mapStateToProps)(SellerProfile);
+export default connect(mapStateToProps)(UserProfile);

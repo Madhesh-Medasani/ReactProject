@@ -90,9 +90,9 @@ export default function SellerLogin() {
       
     <ThemeProvider theme={theme}>
       <Grid spacing={2} sx={{ height: '100vh' }} wrap="nowrap">
-      <Grid item xs={4}>
+      <Grid item xs={5}>
       
-      <Typography variant='h1' style={{fontFamily:'"The Nautigal", cursive'}}>Dream Basket</Typography>
+      <Typography variant='h1' style={{fontFamily:'"The Nautigal", cursive'}}>Dream Basket  for Sellers</Typography>
       <hr
         style={{
             color: 'black',
@@ -102,13 +102,13 @@ export default function SellerLogin() {
         }}
       />
       
-       <img src="https://cdn-icons-png.flaticon.com/512/2575/2575886.png" alt="logo" style={{width:"30vw",height:"30vh",marginTop:70,marginLeft:50}}/>
+       {/* <img src="https://cdn-icons-png.flaticon.com/512/2575/2575886.png" alt="logo" style={{width:"30px",height:"30vh",marginTop:70,marginLeft:50}}/> */}
       
       
       </Grid>
       <Grid item xs={8}>
   
-      <Container component="main" maxWidth="xs" style={{paddingTop:20,marginLeft:900}}>
+      <Container component="main" maxWidth="xs" style={{background: 'linear-gradient(to right bottom, #eecda3,#ef629f)',paddingTop:20,marginLeft:900}}>
         <Card raised="true" style={{padding:20}}>
         <CssBaseline />
        

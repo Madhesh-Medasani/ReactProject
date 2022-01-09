@@ -44,6 +44,13 @@ export default function LaptopFeatures() {
                     sx={{ width: 300 }}
                     renderInput={(params) => <TextField {...params} label="Storage" name='storage'/>}
                     />
+                    <Autocomplete
+                    disablePortal
+                    id="laptopstorage"
+                    options={f.set.color} // contains the list of values of storage which displays as options
+                    sx={{ width: 300 }}
+                    renderInput={(params) => <TextField {...params} label="color" name='color'/>}
+                    />
                     
                     
                 </div>

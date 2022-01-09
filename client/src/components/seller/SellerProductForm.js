@@ -6,7 +6,8 @@ import Button from '@mui/material/Button'
 import MobileFeature from "./categoryforms/MobileFeature";
 import LaptopFeature from "./categoryforms/LaptopFeatures";
 import axios from "axios";
-
+import HeadphoneFeatures from './categoryforms/HeadphoneFeatures';
+import {useNavigate} from 'react-router-dom'
 
 function SellerProductForm({brandname, sellername, cid}) {
     //For storing the brands information based on data and updating in {brand: []}
@@ -25,6 +26,8 @@ function SellerProductForm({brandname, sellername, cid}) {
         
     })
     }
+
+    const navigate = useNavigate();
     //Data from the Form control is stored by handlesubmit which creates the Product object. 
     const handleSubmit = async(event) => {
         event.preventDefault();
@@ -39,6 +42,7 @@ function SellerProductForm({brandname, sellername, cid}) {
         }
         obj["cid"]=cid; // Storing category id from reducer  and storing in Product Object
         await axios.post("/sellerproduct",obj); // posting the data to sever using axios
+
         console.log(obj);
         console.log({
             sellername: fdata.get('sellername'),
@@ -47,8 +51,11 @@ function SellerProductForm({brandname, sellername, cid}) {
             productprice: fdata.get('productprice'),
             ram: fdata.get('ram'),
             storage: fdata.get('storage'),
-            colour: fdata.get('colour') 
+            colour: fdata.get('colour') ,
+            qty : fdata.get('productquantity')
         })
+
+        navigate('/seller/productList')
     }
     const seller=brandname // storing brandname from redux in seller varialble
     useEffect(() => {
@@ -56,7 +63,7 @@ function SellerProductForm({brandname, sellername, cid}) {
         
         console.log(seller)
     },[])
-    const {brand} = brandsinfo // storing the array of objects in brand obtained from brandinfo
+    // const {brand} = brandsinfo // storing the array of objects in brand obtained from brandinfo
     return (
               
             
@@ -109,15 +116,27 @@ function SellerProductForm({brandname, sellername, cid}) {
               id="productprice"
               autoComplete="productprice"
             />
+
+            <Input
+            placeholder='Product Quantity'
+              margin="normal"
+              required
+              fullWidth
+              name="productquantity"
+              label="productquantity"
+              type="number"
+              id="productquantity"
+              autoComplete="productquantity"
+            />
             
             {
-                cid==1 && <MobileFeature /> //Form for Mobile features
+                cid==="1" && <MobileFeature /> //Form for Mobile features
             }
             {
-                cid==2 && <LaptopFeature /> // Form for Laptop features
+                cid==="2" && <LaptopFeature /> // Form for Laptop features
             }
             {
-                
+                cid==="Ezvhh3P" && <HeadphoneFeatures />
             }
 
                 <Button

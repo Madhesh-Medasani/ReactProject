@@ -3,7 +3,38 @@ import React from "react";
 import { Grid } from "@material-ui/core";
 import SellerNavbar from "./SellerNavbar";
 import SellerProductCard from "../../SellerProductCard";
+import { useState, useEffect } from "react";
+
 const SellerProductList = ({sellername}) => {
+    
+    const [spinfo,setSpinfo] = useState({
+        products: []
+    })
+
+     const fetchdata = ()=>{
+
+        let url ="http://localhost:5000/sellerproduct?sellername=" + sellername
+
+        return fetch(url).then((response)=>
+         response.json()).then((data)=>{
+             console.log(data)
+             setSpinfo({
+             products: data
+         })
+        
+         
+     })
+     }
+
+
+    useEffect(() => {
+        fetchdata()
+        
+    },[])
+
+    const {products} = spinfo;
+    
+    
     return (
 
         <Grid container direction="column" >
@@ -18,29 +49,15 @@ const SellerProductList = ({sellername}) => {
                 <Grid item xs={12} sm={8}>
                     
                 <Grid container spacing={2}>
-        <Grid item xs={12} sm={4}>
-            <SellerProductCard />
+                {products.map((p) => {
+                    return (
+                        <Grid item xs={12} sm={4}>
+                        <SellerProductCard product= {p} />
+                    
+                        </Grid>
+                    )
+                })}
         
-        </Grid>
-        <Grid item xs={12} sm={4}>
-        <SellerProductCard />
-      </Grid>
-      <Grid item xs={12} sm={4}>
-      <SellerProductCard />
-        
-      </Grid>
-      <Grid item xs={12} sm={4}>
-      <SellerProductCard />
-        
-      </Grid>
-      <Grid item xs={12} sm={4}>
-      <SellerProductCard />
-       
-      </Grid>
-      <Grid item xs={12} sm={4}>
-      <SellerProductCard />
-       
-      </Grid>
 
         {/* {coffeMakerList.map(coffeMakerObj => getCoffeMakerCard(coffeMakerObj))} */}
         </Grid>

@@ -1,39 +1,27 @@
 import React from "react";
 import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardActions from "@material-ui/core/CardActions";
+
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 
-import { Avatar, IconButton, CardMedia } from "@material-ui/core";
+import {  CardMedia } from "@material-ui/core";
 
 const SellerProductCard = props => {
-  const { avatarUrl, title, subtitle, description, imageUrl } = props;
   return (
     <Card>
-      {/* <CardHeader
-        avatar={<Avatar src={avatarUrl} />}
-        action={
-          <IconButton aria-label="settings">
-            <ShareIcon />
-          </IconButton>
-        }
-        title={title}
-        subheader={subtitle}
-      /> */}
       <CardMedia style={{ height: "150px" }} image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjvcMbxT5lRH4-nYz3QTqPJQmnV9FQDGPzTQ&usqp=CAU" />
       <CardContent>
         <Typography variant="body2" component="p">
-          Hello
+          {props.product.productname}
         </Typography>
         <Typography variant="body2" component="p">
-          Hello
+          Brand  : {props.product.productbrand}
+        </Typography>
+        <Typography variant="body2" component="p" style = {{fontWeight : 'bold'}}>
+          Price : {props.product.productprice}/-
         </Typography>
         <Typography variant="body2" component="p">
-          Hello
-        </Typography>
-        <Typography variant="body2" component="p">
-          Hello
+        Quantity: {props.product.productquantity}
         </Typography>
 
       </CardContent>

@@ -3,8 +3,8 @@ import {Box, makeStyles, Button, Typography, Badge} from '@material-ui/core'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import sellerstore from '../../seller/sellerstore';
 import {useNavigate} from 'react-router-dom'
-
-
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { NavLink } from 'react-router-dom';
 
 const useStyle = makeStyles({
     login : {
@@ -57,7 +57,7 @@ function HeaderButtons(props){
     return (
         <Box className={classes.wrapper}>
             <Typography className = {classes.login}>Hi,{props.username}</Typography>
-            <Typography style={{marginTop: '5px'}}>More</Typography>
+            <NavLink to="/user/profile"><AccountCircleIcon /></NavLink>
 
             <Box className={classes.container}>
                 <Badge badgeContent={4} color="secondary">
@@ -67,6 +67,9 @@ function HeaderButtons(props){
             </Box>
 
             <Button variant="contained" onClick={Logout} className = {classes.logout}>Logout</Button>
+
+            <Button ></Button>
+
 
         </Box>
     );

@@ -6,12 +6,13 @@ import Header from '../UserHomepage/Header';
 import {useState, useEffect} from 'react'
 import { useLocation } from "react-router-dom";
 import Autocomplete from '@mui/material/Autocomplete';
-import { TextField } from '@mui/material';
+import { FormControl, TextField, Typography } from '@mui/material';
+import { Button } from '@mui/material';
+import sellerstore from '../../seller/sellerstore';
+import {connect} from 'react-redux'
 
 
-
-// fetching seller products
-const Products = (props) => {
+const Products = ({brandname, username}) => {
     const classes = useStyles();
 
     const [productinfo,setProductinfo] = useState({
@@ -22,8 +23,12 @@ const Products = (props) => {
 
 
 
-    const fetchdata = ()=>{
-        return fetch("http://localhost:5000/sellerproduct").then((response)=>
+    const fetchdata = (cat , brandname)=>{
+
+        console.log(cat)
+
+        if(brandname === "" || brandname === undefined){
+            return fetch(`http://localhost:5000/sellerproduct?cid=${cat}`).then((response)=>
          response.json()).then((data)=>{
              console.log(data)
              setProductinfo({
@@ -32,9 +37,24 @@ const Products = (props) => {
         
          
      })
+        }
+
+    else{
+        return fetch(`http://localhost:5000/sellerproduct?cid=${cat}&productbrand=${brandname}`).then((response)=>
+         response.json()).then((data)=>{
+             console.log(data)
+             setProductinfo({
+             products: data
+         })
+        
+         
+     })
+    }
+
+        
      }
 
-// fetching categories 
+
      const [brandinfo,setBrandinfo] = useState({
         brands: []
     })
@@ -56,7 +76,7 @@ const Products = (props) => {
 
 
     useEffect(() => {
-        fetchdata()
+        fetchdata(cat)
         fetchdata1(cat)
         
     },[])
@@ -72,8 +92,10 @@ const Products = (props) => {
     let cat = getCategory(l1.pathname)
 
     
+
+    
     let pro =[];
-// checking product category id with categries
+
     for (let i=0; i< products.length; i++){
         if(products[i].cid === cat){
             
@@ -81,32 +103,45 @@ const Products = (props) => {
         }
     }
 
- 
 
+    const handleSubmit = async(event) => {
+        event.preventDefault();
+        const fdata = new FormData(event.currentTarget);
+        let brand = fdata.get('filterbrand')
+        sellerstore.dispatch({type: "sendBrand",payload: {brand: brand}})
+        fetchdata(cat,brand)
+    }
     return (
         <div>
-            <Header username={props.username}/>
+            <Header username={username}/>
 
             
 
             <main className={classes.content}>
 
             
-
-            
                 
                 <div className={classes.toolbar}/>
-                <Autocomplete
-                disablePortal
-                id="combo-box-demo"
-                options={brands}
-                getOptionLabel={option => option.Name}
-                sx={{ width: 300 }}
-                renderInput={(params) => <TextField {...params} label="Brands" />}
-                />
+                <Typography variant="h5">Filter by brands</Typography>
+                <FormControl component="form" onSubmit={handleSubmit} style={{width:'20vw'}}>
+                    <Autocomplete
+                    disablePortal
+                    id="combo-box-demo"
+                    options={brands}
+                    getOptionLabel={option => option.Name}
+                    sx={{ width: 300 }}
+                    renderInput={(params) => <TextField {...params} label="Brands" name="filterbrand" />}
+            
+                    />
+
+                    <Button type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}>Apply</Button>
+                </FormControl>
 
             <Grid container justify="center" spacing={4}>
-                {pro.map((product)=>(
+                {products.map((product)=>(
                     <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
                         <Product product={product} />
                     </Grid>
@@ -118,8 +153,13 @@ const Products = (props) => {
 }
 
 
+const mapStateToProps= (state)=>{
+    console.log(state.brandReducer.brand)
+    
+    return {
+        brandname: state.brandReducer.brand,
+        username: state.userReducer.username,
 
-
-
-
-export default Products;
+    }
+}
+export default connect(mapStateToProps)(Products)
