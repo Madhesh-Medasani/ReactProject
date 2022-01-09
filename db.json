@@ -127,6 +127,11 @@
       "Name": "OnePlus",
       "categoryId": "Ezvhh3P",
       "id": "5"
+    },
+    {
+      "Name": "Access",
+      "categoryId": "2",
+      "id": "yGb4a_h"
     }
   ],
   "users": [
@@ -153,6 +158,16 @@
       "email": "nishitauppala11@gmail.com",
       "password": "12345678",
       "id": 3
+    },
+    {
+      "name": "Kota Venkata Sai Varshini",
+      "email": "venkatasaivarshini.k19@iiits.in",
+      "id": 4
+    },
+    {
+      "name": "varshini23",
+      "email": "adittya234@gmail.com",
+      "id": 5
     }
   ],
   "sellers": [
@@ -190,6 +205,20 @@
       "email": "kvsvarshini23@gmail.com",
       "password": "varshini23",
       "id": 6
+    },
+    {
+      "name": "varshini23",
+      "gst": "GST12345678900",
+      "email": "venkatasaivarshini.k19@iiits.in",
+      "password": "varsh",
+      "id": 7
+    },
+    {
+      "name": "Aditya",
+      "gst": "GST12345678900",
+      "email": "venkatasaivarshini.k19@iiits.in",
+      "password": "varsh",
+      "id": 8
     }
   ],
   "sellerproduct": [
@@ -226,6 +255,41 @@
       "colour": "silver",
       "cid": "1",
       "id": 3
+    },
+    {
+      "sellername": "Madhesh Eletronics",
+      "productname": "HPD600",
+      "productbrand": "HP",
+      "productprice": "60000",
+      "ram": "16",
+      "storage": "512GB SSD",
+      "colour": "silver",
+      "cid": "2",
+      "quantity": 1,
+      "id": 5
+    },
+    {
+      "sellername": "Madhesh Eletronics",
+      "productname": "Earphones",
+      "productbrand": "OnePlus",
+      "productprice": "17",
+      "productquantity": "2",
+      "color": "white",
+      "connectorType": "wireless",
+      "cid": "Ezvhh3P",
+      "id": 6
+    },
+    {
+      "sellername": "Madhesh Eletronics",
+      "productname": "Oneplus7",
+      "productbrand": "OnePlus",
+      "productprice": "34567",
+      "productquantity": "3",
+      "ram": "8GB",
+      "storage": "32GB",
+      "colour": "black",
+      "cid": "1",
+      "id": 7
     }
   ],
   "sellerprofile": [
@@ -264,7 +328,7 @@
       "id": 1
     }
   ],
-  "cart" : [
+  "cart": [
     {
       "sellername": "Madhesh Eletronics",
       "productname": "HPD600",

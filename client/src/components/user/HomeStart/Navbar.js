@@ -22,12 +22,7 @@ function Navbar(){
                                 <li className="nav-item ">
                                     <NavLink exact className="nav-link mt-3" to="/">Home </NavLink>
                                 </li>
-                                <li className="nav-item ">
-                                    <NavLink className="nav-link mt-3" to="/user/home">Link</NavLink>
-                                </li>
-                                <li className="nav-item">
-                                    <NavLink className="nav-link mt-3" to="/">About</NavLink>
-                                </li>
+                                
                                 </ul>
                                 
                             </div>
