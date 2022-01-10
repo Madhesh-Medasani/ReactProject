@@ -11,6 +11,12 @@ const sellerReducer =(state=initialState,action)=>{
                 ...state,
                 sellername: action.payload.sellername
             }
+
+            case "Logout":
+                return{
+                    ...state,
+                   sellername: ""
+                }
         default: return state
     }
 }

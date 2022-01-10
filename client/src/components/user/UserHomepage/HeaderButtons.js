@@ -5,7 +5,8 @@ import sellerstore from '../../seller/sellerstore';
 import {useNavigate} from 'react-router-dom'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { NavLink } from 'react-router-dom';
-
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import { connect } from 'react-redux';
 const useStyle = makeStyles({
     login : {
         background : '#FFFFFF',
@@ -43,7 +44,7 @@ const useStyle = makeStyles({
     }
 })
 
-function HeaderButtons(props){
+function HeaderButtons({username, quantity}){
 
     const classes = useStyle()
 
@@ -56,14 +57,21 @@ function HeaderButtons(props){
 
     return (
         <Box className={classes.wrapper}>
-            <Typography >Hi,{props.username}</Typography>
+            <Typography >Hi,{username}</Typography>
             <NavLink to="/user/profile"><AccountCircleIcon /></NavLink>
 
             <Box className={classes.container}>
-                <Badge badgeContent={4} color="secondary">
+                <Badge badgeContent={quantity} color="secondary">
+                    
                     <ShoppingCartIcon  />
                 </Badge>
-                <Typography style={{marginLeft : '10px'}}>Cart</Typography>
+                    <NavLink to="/user/cart">
+                        <Typography style={{marginLeft : '10px'}}>Cart</Typography>
+                    </NavLink>
+
+                    <NavLink to="/user/orders">
+                        <LocalShippingIcon style={{marginLeft : '35px'}} />
+                    </NavLink>
             </Box>
 
             <Button variant="contained" onClick={Logout} className = {classes.logout}>Logout</Button>
@@ -75,4 +83,11 @@ function HeaderButtons(props){
     );
 }
 
-export default HeaderButtons;
+const mapStateToProps = (state) => {
+    return {
+        quantity : state.cartReducer.quantity,
+        username: state.userReducer.username,
+    };
+  };
+  
+  export default connect(mapStateToProps)(HeaderButtons);

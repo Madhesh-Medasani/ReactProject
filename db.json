@@ -290,6 +290,18 @@
       "colour": "black",
       "cid": "1",
       "id": 7
+    },
+    {
+      "sellername": "Madhesh Eletronics",
+      "productname": "HP D44682",
+      "productbrand": "Access",
+      "productprice": "37438",
+      "productquantity": "4",
+      "ram": "16",
+      "storage": "1TB HDD",
+      "color": "silver",
+      "cid": "2",
+      "id": 8
     }
   ],
   "sellerprofile": [
@@ -350,6 +362,105 @@
       "cid": "2",
       "quantity": 1,
       "id": 5
+    },
+    {
+      "sellername": "Madhesh Eletronics",
+      "productname": "Vivo 5080",
+      "productbrand": "Vivo",
+      "productprice": "45839",
+      "ram": "8GB",
+      "storage": "128GB",
+      "colour": "silver",
+      "cid": "1",
+      "quantity": 1,
+      "pid": 3,
+      "id": 6
+    }
+  ],
+  "orders": [
+    {
+      "date": "Mon, 10 Jan 2022 18:49:25 GMT",
+      "username": "varshini123456",
+      "productId": 8,
+      "return": false,
+      "sellername": "Madhesh Eletronics",
+      "productname": "HP D44682",
+      "productbrand": "Access",
+      "productprice": "37438",
+      "productquantity": "4",
+      "cid": "2",
+      "cartQuantity": 3,
+      "id": 1
+    },
+    {
+      "date": "Mon, 10 Jan 2022 18:50:47 GMT",
+      "username": "varshini123456",
+      "productId": 3,
+      "return": false,
+      "sellername": "Madhesh Eletronics",
+      "productname": "Vivo 5080",
+      "productbrand": "Vivo",
+      "productprice": "45839",
+      "productquantity": "6",
+      "cid": "1",
+      "cartQuantity": 2,
+      "id": 2
+    },
+    {
+      "date": "Mon, 10 Jan 2022 18:50:47 GMT",
+      "username": "varshini123456",
+      "productId": 1,
+      "return": false,
+      "sellername": "Madhesh Eletronics",
+      "productname": "Airpods 55",
+      "productbrand": "Apple",
+      "productprice": "3589",
+      "productquantity": "2",
+      "cid": "Ezvhh3P",
+      "cartQuantity": 1,
+      "id": 3
+    },
+    {
+      "date": "Mon, 10 Jan 2022 18:50:47 GMT",
+      "username": "varshini123456",
+      "productId": 7,
+      "return": false,
+      "sellername": "Madhesh Eletronics",
+      "productname": "Oneplus7",
+      "productbrand": "OnePlus",
+      "productprice": "34567",
+      "productquantity": "3",
+      "cid": "1",
+      "cartQuantity": 2,
+      "id": 4
+    },
+    {
+      "date": "Mon, 10 Jan 2022 18:50:47 GMT",
+      "username": "varshini123456",
+      "productId": 6,
+      "return": false,
+      "sellername": "Madhesh Eletronics",
+      "productname": "Earphones",
+      "productbrand": "OnePlus",
+      "productprice": "17",
+      "productquantity": "2",
+      "cid": "Ezvhh3P",
+      "cartQuantity": 1,
+      "id": 5
+    },
+    {
+      "date": "Mon, 10 Jan 2022 18:50:47 GMT",
+      "username": "varshini123456",
+      "productId": 2,
+      "return": false,
+      "sellername": "Madhesh Eletronics",
+      "productname": "Earphones",
+      "productbrand": "OnePlus",
+      "productprice": "567",
+      "productquantity": "5",
+      "cid": "Ezvhh3P",
+      "cartQuantity": 1,
+      "id": 6
     }
   ]
 }

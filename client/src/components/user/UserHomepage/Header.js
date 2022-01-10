@@ -3,7 +3,7 @@ import {AppBar, Toolbar, makeStyles, Typography, Box, withStyles } from '@materi
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import SearchBar from './SearchBar';
 import HeaderButtons from './HeaderButtons';
-
+import {connect} from "react-redux"
 
 
                         // header for user homepage
@@ -36,7 +36,7 @@ const ToolBar = withStyles({
     }
 })(Toolbar)
 
-function Header(props){
+function Header({username, quantity}){
     const classes = useStyle();
     return (
         <div>
@@ -48,11 +48,18 @@ function Header(props){
                     </Box>
 
                     <SearchBar />
-                    <HeaderButtons username={props.username}/>
+                    <HeaderButtons username={username}/>
                 </ToolBar>
             </AppBar>
         </div>
     );
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+    return {
+      quantity : state.cartReducer.quantity,
+      username: state.userReducer.username,
+    };
+  };
+  
+  export default connect(mapStateToProps)(Header);

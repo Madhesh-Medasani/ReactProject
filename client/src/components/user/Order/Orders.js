@@ -9,7 +9,9 @@ import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Button from '@material-ui/core/Button';
 import Box from '@mui/material/Box';
-
+import { useState, useEffect } from 'react';
+import OrderCard from './OrderCard';
+import { connect } from 'react-redux';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -50,9 +52,34 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 
-function Orders(){
+function Orders({username}){
 
     const classes = useStyles();
+
+    const [orderinfo,setOrderinfo] = useState({
+        orders: []
+    })
+    // fetch the data of brands and set the data into {brand : []}
+    const fetchdata = ()=>{
+       return fetch(`http://localhost:5000/orders?username=${username}`).then((response)=>
+        response.json()).then((data)=>{
+            console.log(data)
+            setOrderinfo({
+            orders: data
+        })
+       
+        
+    })
+    }
+    
+
+
+    useEffect(()=>{
+        fetchdata();
+
+    },[])
+    
+    const {orders} = orderinfo;
 
     return (
         <>
@@ -61,147 +88,34 @@ function Orders(){
             <br />
 
             {/* code for orders page */}
-
             <div className="order-margin">
                 <center>
                     <div className="order-border">
                         <div>
                             <p className="order-heading1">Showing <strong>All orders</strong></p>
                         </div>
-                        <div className="grid order-orders">
-                            <div className="g-col-12 order-card">
-                                <div className="">
-                                    <div className="order-shop">
-                                        <div className="order-status-display">
-                                            <img src="https://img.icons8.com/ios-filled/40/000000/checked-truck.png"/>
-                                            <p className="order-deliver">Delivered</p>
-                                        </div>
-                                        <div className={classes.root}>
-                                            <Paper className={classes.paper}>
-                                                <Grid container spacing={2}>
-                                                    <Grid item>
-                                                        <ButtonBase className={classes.image}>
-                                                        <img className={classes.img} alt="complex" src="/static/images/grid/complex.jpg" />
-                                                        </ButtonBase>
-                                                    </Grid>
-                                                    <Grid item xs={12} sm container>
-                                                        <Grid item xs container direction="column" spacing={2}>
-                                                        <Grid item xs>
-                                                            <Typography gutterBottom variant="subtitle1" align='left' className={classes.bold}>
-                                                            Apple iphone 11 MAX Pro
-                                                            </Typography>
-                                                            <Typography variant="body2" gutterBottom align='left'>
-                                                            Apple
-                                                            </Typography>
-                                                            <Typography variant="body2" color="textSecondary" align='left'>
-                                                            RAM : 512Gb
-                                                            </Typography>
-                                                        </Grid>
-                                                        <Grid item className={classes.button_order}>
-                                                        <Box
-                                                        component="span"
-                                                        m={1}
-                                                        className={`${classes.spreadBox} ${classes.box}`}
-                                                        >
-                                                        <Button 
-                                                            variant="contained" 
-                                                            color="primary" 
-                                                            style={{ height: 40,  }}
-                                                            href="#contained-buttons"
-                                                        >
-                                                            EXCHANGE
-                                                        </Button>
-                                                        <Button 
-                                                            variant="contained" 
-                                                            color="primary" 
-                                                            style={{ height: 40 }}
-                                                            href="#contained-buttons"
-                                                        >
-                                                            RETURN
-                                                        </Button>
-                                                        </Box>
-                                                        </Grid>
-                                                        </Grid>
-                                                        <Grid item>
-                                                        <Typography variant="subtitle1">$19.00</Typography>
-                                                        </Grid>
-                                                    </Grid>
-                                                </Grid>
-                                            </Paper>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        
 
-                            <div className="g-col-12 order-card">
-                                <div className="">
-                                    <div className="order-shop">
-                                        <div className="order-status-display">
-                                            <img src="https://img.icons8.com/ios-filled/40/000000/checked-truck.png"/>
-                                            <p className="order-deliver">Delivered</p>
-                                        </div>
-                                        <div className={classes.root}>
-                                            <Paper className={classes.paper}>
-                                                <Grid container spacing={2}>
-                                                    <Grid item>
-                                                        <ButtonBase className={classes.image}>
-                                                        <img className={classes.img} alt="complex" src="/static/images/grid/complex.jpg" />
-                                                        </ButtonBase>
-                                                    </Grid>
-                                                    <Grid item xs={12} sm container>
-                                                        <Grid item xs container direction="column" spacing={2}>
-                                                        <Grid item xs >
-                                                            <Typography gutterBottom variant="subtitle1" align='left' className={classes.bold}>
-                                                            Standard license
-                                                            </Typography>
-                                                            <Typography variant="body2" gutterBottom align='left'>
-                                                            Full resolution 1920x1080 • JPEG
-                                                            </Typography>
-                                                            <Typography variant="body2" color="textSecondary" align='left'>
-                                                            ID: 1030114
-                                                            </Typography>
-                                                        </Grid>
-                                                        <Grid item className={classes.button_order}>
-                                                        <Box
-                                                        component="span"
-                                                        m={1}
-                                                        className={`${classes.spreadBox} ${classes.box}`}
-                                                        >
-                                                        <Button 
-                                                            variant="contained" 
-                                                            color="primary" 
-                                                            style={{ height: 40, }}
-                                                            href="#contained-buttons"
-                                                        >
-                                                            EXCHANGE
-                                                        </Button>
-                                                        <Button 
-                                                            variant="contained" 
-                                                            color="primary" 
-                                                            style={{ height: 40 }}
-                                                            href="#contained-buttons"
-                                                        >
-                                                            RETURN
-                                                        </Button>
-                                                        </Box>
-                                                        </Grid>
-                                                        </Grid>
-                                                        <Grid item>
-                                                        <Typography variant="subtitle1">$19.00</Typography>
-                                                        </Grid>
-                                                    </Grid>
-                                                </Grid>
-                                            </Paper>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            {orders.map((o) => {
+                return (
+                    
+                    <div className="grid order-orders">
+
+                            <OrderCard order={o} />
+                        </div> ) })} 
+                    
                     </div>
                 </center>
             </div>
+                
+            
         </>
     );
 }
 
-export default Orders;
+const mapStateToProps = (state) => {
+    return {
+      username: state.userReducer.username,
+    };
+  };
+export default connect(mapStateToProps)(Orders);

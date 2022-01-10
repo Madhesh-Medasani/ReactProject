@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import {useNavigate} from "react-router-dom"
+import sellerstore from "./sellerstore"
 
 
 const pages = ['Products', 'Add Product', 'Orders'];
@@ -39,6 +40,12 @@ const SellerNavbar = () => {
     const handleCloseUserMenu = () => {
       setAnchorElUser(null);
     };
+
+    const handleLogout = () => {
+      sellerstore.dispatch('Logout')
+
+      navigate('/')
+    }
     const navigate =useNavigate();
     return (
         <AppBar position="static">
@@ -181,6 +188,23 @@ const SellerNavbar = () => {
                   >
                   <Typography textAlign="center">Profile</Typography>
                   </Button>
+
+                </MenuItem>
+
+                <MenuItem>
+                  <Button
+                  onClick={
+                    () => {
+                      
+                      sellerstore.dispatch({type:"Logout"})
+                      navigate('/')
+                      
+                    }
+                  }
+                  >
+                  <Typography textAlign="center">Logout</Typography>
+                  </Button>
+                  
                 </MenuItem>
               
             </Menu>

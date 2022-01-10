@@ -5,16 +5,35 @@ import { mergeClasses } from "@material-ui/styles";
 import useStyles from "./Styles";
 import sellerstore from "../../seller/sellerstore";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
+import {connect} from "react-redux"
 
 // displaying the product with its features
 
-const Product = ({product}) => {
+const Product = ({product,username,cart}) => {
     const classes =useStyles();
 
-    const addToCart = (item) => {
-        sellerstore.dispatch({ type: "ADD_TO_CART", payload: { item: item } });
-        console.log("book id :" + item.id + " is added to cart");
-      };
+    const addToCart = (product,username,cart) =>{
+        console.log(username)
+        let flag = 0
+        for(let c of cart){
+            if(c.id === product.id){
+                if(c.qty < product.productquantity){
+                    flag =1
+                    sellerstore.dispatch({type : "ADD_TO_CART", payload : {item : product, username : username }})
+                }
+                else{
+                    flag = 1
+                    alert('No stock left to order')
+                }
+            }
+            
+        }
+        if(flag === 0){
+            
+                sellerstore.dispatch({type : "ADD_TO_CART", payload : {item : product, username : username }})
+        }
+    }
 
 
     return (
@@ -41,12 +60,20 @@ const Product = ({product}) => {
                 </Typography>
             </CardContent>
             <CardActions disableSpacing className={classes.cardActions}>
-                <IconButton aria-label="Add to Cart" onClick={() => addToCart(product)}>
-                    <AddShoppingCart/>
-                </IconButton>
+            <div className='mt-3'>
+           
+            <button onClick={(e) => addToCart(product,username,cart)}
+                    className="btn cart-btn">Add To Cart</button>
+                    
+   
+            <IconButton aria-label="Add to Cart" />
+                    
+            </div>
+
+            <AddShoppingCart/>
             </CardActions>
 
-            <NavLink to="/user/cart">Cart</NavLink>
+            
 
         </Card>
         
@@ -55,4 +82,12 @@ const Product = ({product}) => {
     );
 
     };
-export default Product;
+
+
+    const mapStateToProps = (state) => {
+        return {
+          username: state.userReducer.username,
+          cart : state.cartReducer.cart
+        };
+      };
+export default connect(mapStateToProps)(Product);

@@ -2,7 +2,7 @@ import React from "react";
 import { Typography } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
 import SellerNavbar from "./SellerNavbar";
-import SellerProductCard from "../../SellerProductCard";
+import SellerOrderCard from "./SellerOrderCard";
 import { useState, useEffect } from "react";
 const SellerOrders = ({sellername})=>{
     const [orderinfo,setOrderinfo] = useState({
@@ -10,7 +10,7 @@ const SellerOrders = ({sellername})=>{
     })
     // fetch the data of brands and set the data into {brand : []}
     const fetchdata = ()=>{
-       return fetch(`http://localhost:5000/cart?sellername=${sellername}`).then((response)=>
+       return fetch(`http://localhost:5000/orders?sellername=${sellername}`).then((response)=>
         response.json()).then((data)=>{
             console.log(data)
             setOrderinfo({
@@ -45,7 +45,7 @@ const SellerOrders = ({sellername})=>{
                 {orders.map((p) => {
                     return (
                         <Grid item xs={12} sm={4}>
-                        <SellerProductCard product= {p} />
+                        <SellerOrderCard product= {p} />
                         </Grid>
                     )
                 })}
