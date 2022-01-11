@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     
   }));
 
-function OrderCard(props){
+function OrderCard(props){    // OrderCard component is to display a single order
 
     const classes = useStyles();
 

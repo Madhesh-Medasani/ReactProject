@@ -13,18 +13,18 @@ import {connect} from "react-redux"
 const Product = ({product,username,cart}) => {
     const classes =useStyles();
 
-    const addToCart = (product,username,cart) =>{
+    const addToCart = (product,username,cart) =>{  // Add to cart functionality
         console.log(username)
         let flag = 0
         for(let c of cart){
             if(c.id === product.id){
-                if(c.qty < product.productquantity){
+                if(c.qty < product.productquantity){    // checking if stock of product is available
                     flag =1
                     sellerstore.dispatch({type : "ADD_TO_CART", payload : {item : product, username : username }})
                 }
                 else{
                     flag = 1
-                    alert('No stock left to order')
+                    alert('No stock left to order') // No stock left
                 }
             }
             

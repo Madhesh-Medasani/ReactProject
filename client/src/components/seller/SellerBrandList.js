@@ -79,7 +79,7 @@ function SellerBrandList({brandname, sellername, categoryid}) {
             <Grid item style={{marginTop:80}}>
 
             <div component="form" onSubmit={handleSubmit} noValidate>
-            { brand.length > 0 &&  brand.map((b)=>
+            { brand.length > 0 &&  brand.map((b)=>   // Displaying brands if category is selected
                   
                 
                   <div style={{marginBottom:50}}>
@@ -96,7 +96,7 @@ function SellerBrandList({brandname, sellername, categoryid}) {
             ) 
               
             }
-            { brand.length===0 && 
+            { brand.length===0 &&    // Displaying categories when category is not selected
                 category.map((c)=>
                 <div style={{marginBottom:50}}>
                 
@@ -129,7 +129,7 @@ function SellerBrandList({brandname, sellername, categoryid}) {
        
     )
 }
-const mapStateToProps= (state)=>{
+const mapStateToProps= (state)=>{   // mapping state to props to send brandname and categoryId
     console.log(state.brandReducer.brand)
     
     return {

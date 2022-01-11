@@ -8,7 +8,7 @@ function SellerProfileDetails({sellername}) {
     const [profile, setProfile] = useState({profiles : []})
 
     const fetchData = (sellername) =>{
-        return fetch(`http://localhost:5000/sellerprofile?sellername=${sellername}`)
+        return fetch(`http://localhost:5000/sellerprofile?sellername=${sellername}`)   // fetching the Profile details if exist
             .then((response) => response.json())
             .then((data)=> {
                 setProfile({profiles : data
@@ -29,10 +29,10 @@ function SellerProfileDetails({sellername}) {
     return (
         <div>
             <SellerNavbar/>
-
-            {profiles.length === 0 && <SellerProfile />} 
-
-            {profiles.length !== 0 && <center>
+            {/* IF profile data is not present display form */}
+            {profiles.length === 0 && <SellerProfile />}  
+            {/* Display profile data  */}
+            {profiles.length !== 0 && <center>  
     {profiles.map((profile) =>{
         return (
         <table>

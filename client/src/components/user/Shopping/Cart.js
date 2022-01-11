@@ -51,6 +51,8 @@ function Cart({ cart, username }) {
   const [totalqty, setTotalQty] = useState(0)
   const [totalprice, setTotalPrice] = useState(0)
 
+  // Calculating TotalPrice and TotalQuantity of items in cart by iterating over cart items.
+
   useEffect( () => {
     let TotalQty = 0
     let TotalPrice = 0
@@ -76,10 +78,10 @@ function Cart({ cart, username }) {
       </Typography>
       &nbsp;
       {cart.length === 0 ? (
-        <Typography variant="h5">Cart is empty</Typography>
+        <Typography variant="h5">Cart is empty</Typography>   // If cart is empty display nothing
       ) : (
         cart.map((c) => {
-          return <CartProduct cartpro= {c} />;
+          return <CartProduct cartpro= {c} />;  // If cart is not empty we iterate over cart items and display using CartProduct.
         })
       )}
       <Typography variant="h5">No.of items : {totalqty}</Typography>

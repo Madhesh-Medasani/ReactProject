@@ -61,7 +61,7 @@ function Orders({username}){
     })
     // fetch the data of brands and set the data into {brand : []}
     const fetchdata = ()=>{
-       return fetch(`http://localhost:5000/orders?username=${username}`).then((response)=>
+       return fetch(`http://localhost:5000/orders?username=${username}`).then((response)=>   // fetching the orders of the current user
         response.json()).then((data)=>{
             console.log(data)
             setOrderinfo({

@@ -9,7 +9,7 @@ const SellerOrders = ({sellername})=>{
         orders: []
     })
     // fetch the data of brands and set the data into {brand : []}
-    const fetchdata = ()=>{
+    const fetchdata = ()=>{   // To fetch orders of particular seller
        return fetch(`http://localhost:5000/orders?sellername=${sellername}`).then((response)=>
         response.json()).then((data)=>{
             console.log(data)
@@ -42,7 +42,7 @@ const SellerOrders = ({sellername})=>{
                 <Grid item xs={12} sm={8}>
                     
                 <Grid container spacing={2}>
-                {orders.map((p) => {
+                {orders.map((p) => {     // Iterating over orders fetched
                     return (
                         <Grid item xs={12} sm={4}>
                         <SellerOrderCard product= {p} />

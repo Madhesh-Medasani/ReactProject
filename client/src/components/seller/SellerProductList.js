@@ -11,8 +11,8 @@ const SellerProductList = ({sellername}) => {
         products: []
     })
 
-     const fetchdata = ()=>{
-
+     const fetchdata = ()=>{   // Fetching all products added by current seller
+  
         let url ="http://localhost:5000/sellerproduct?sellername=" + sellername
 
         return fetch(url).then((response)=>

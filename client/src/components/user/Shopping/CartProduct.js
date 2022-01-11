@@ -27,6 +27,8 @@ const CartProduct = ({cartpro,cart}) => {
     console.log("deleted a book in cart");
   };
 
+
+  // Increment the qunatity of item
   const Increment = (product) => {
     if(product.qty < product.productquantity){
       sellerstore.dispatch({type : "INCREMENT_QUANTITY", payload : {item : product}})
@@ -36,10 +38,12 @@ const CartProduct = ({cartpro,cart}) => {
     }
   }
 
+  // Decrement the quantity of item
+
   const Decrement = (product) => {
 
     if(product.qty === 1){
-      deleteFromCart()
+      deleteFromCart()  // deleting item from cart if quantity is less than 1
     }
 
     else{

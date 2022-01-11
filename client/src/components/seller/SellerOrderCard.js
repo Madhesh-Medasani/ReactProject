@@ -12,7 +12,7 @@ const SellerProductCard = props => {
 
     const [profile, setProfile] = useState({profiles : []})
 
-    const fetchData = (username) =>{
+    const fetchData = (username) =>{    // This get the user profile details
         return fetch(`http://localhost:5000/userprofile?username=${username}`)
             .then((response) => response.json())
             .then((data)=> {
@@ -21,7 +21,7 @@ const SellerProductCard = props => {
                 console.log(data)
             });
     }
-
+ 
     useEffect(()=>{
         fetchData(props.product.username)
     },[])
@@ -31,7 +31,7 @@ const SellerProductCard = props => {
 
   return (
     <div>
-        {profiles.map((p) => {
+        {profiles.map((p) => { 
         return (
             <Card>
             <CardMedia style={{ height: "150px" }} image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjvcMbxT5lRH4-nYz3QTqPJQmnV9FQDGPzTQ&usqp=CAU" />
