@@ -16,6 +16,7 @@ import SellerProfileDetails from './components/seller/SellerProfileDetails'
 import UserProfileDetails from './components/user/UserHomepage/UserProfileDetails';
 import Cart from './components/user/Shopping/Cart'
 import SellerOrders from './components/seller/SellerOrders';
+import SingleProduct from './components/user/Shopping/SingleProduct';
 
 function App({sellername,username}) {
   //Routing to the urls and the components  are rendered based on url 
@@ -34,7 +35,7 @@ function App({sellername,username}) {
         <Route exact path='/seller/profile' element={<SellerProfileDetails sellername={sellername}/>} />
         <Route exact path='/seller/orders' element={<SellerOrders sellername={sellername}/>} />
 
-
+        <Route exact path='/singleproduct' element={<SingleProduct/>} />
         <Route exact path='/' element={<Home/>} />
         <Route exact path='/user/home' element={<Homepage username={username} />} />
         <Route exact path='/user/signup' element={<UserSignUp/>} />
