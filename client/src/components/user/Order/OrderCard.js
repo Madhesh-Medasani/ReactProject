@@ -71,6 +71,9 @@ function OrderCard(props){    // OrderCard component is to display a single orde
                                                     <Grid item xs={12} sm container>
                                                         <Grid item xs container direction="column" spacing={2}>
                                                         <Grid item xs>
+                                                        <Typography gutterBottom variant="subtitle1" align='left' className={classes.bold}>
+                                                            {props.order.date}
+                                                            </Typography>
                                                             <Typography gutterBottom variant="subtitle1" align='left' className={classes.bold}>
                                                             {props.order.productname}
                                                             </Typography>

@@ -3,12 +3,7 @@ import Header from '.././UserHomepage/Header'
 import "./CSS/Orders.css"
 import {NavLink} from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import ButtonBase from '@material-ui/core/ButtonBase';
-import Button from '@material-ui/core/Button';
-import Box from '@mui/material/Box';
+
 import { useState, useEffect } from 'react';
 import OrderCard from './OrderCard';
 import { connect } from 'react-redux';
@@ -61,7 +56,7 @@ function Orders({username}){
     })
     // fetch the data of brands and set the data into {brand : []}
     const fetchdata = ()=>{
-       return fetch(`http://localhost:5000/orders?username=${username}`).then((response)=>   // fetching the orders of the current user
+       return fetch(`http://localhost:5000/orders?_sort=date&_order=desc&username=${username}`).then((response)=>   // fetching the orders of the current user
         response.json()).then((data)=>{
             console.log(data)
             setOrderinfo({

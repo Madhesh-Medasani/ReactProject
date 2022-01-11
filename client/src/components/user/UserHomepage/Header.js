@@ -4,6 +4,8 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import SearchBar from './SearchBar';
 import HeaderButtons from './HeaderButtons';
 import {connect} from "react-redux"
+import { useNavigate } from 'react-router';
+
 
 
                         // header for user homepage
@@ -37,18 +39,21 @@ const ToolBar = withStyles({
 })(Toolbar)
 
 function Header({username, quantity}){
+    const navigate = useNavigate();
     const classes = useStyle();
     return (
         <div>
             <AppBar className= {classes.header} >
                 <ToolBar>
-                    <Box className={classes.container}>
+                    <Box className={classes.container} style={{cursor:'pointer',marginRight:"40vw"}} onClick={()=>{
+                        navigate("/user/home")
+                    }}>
                         <Typography className= {classes.heading}>Dream Basket</Typography>
                         <ShoppingCartIcon className={classes.logo} />
                     </Box>
 
-                    <SearchBar />
-                    <HeaderButtons username={username}/>
+                    {/* <SearchBar /> */}
+                    <HeaderButtons username={username} style={{marginLeft:"30px"}}/>
                 </ToolBar>
             </AppBar>
         </div>

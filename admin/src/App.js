@@ -13,6 +13,7 @@ import BrandEdit from './components/admin/BrandEdit';
 import SellerList from './components/admin/SellerList';
 import SellerCreate from './components/admin/SellerCreate';
 import SellerEdit from './components/admin/SellerEdit';
+import OrdersList from './components/admin/OrdersList'
 function App() {
   return (
     //React admin Component which runs on the localhost:3001  
@@ -45,6 +46,10 @@ function App() {
         list={SellerList}
         create={SellerCreate}
         edit={SellerEdit}
+      />
+      <Resource
+        name="orders"
+        list={OrdersList}
       />
     </Admin>
    

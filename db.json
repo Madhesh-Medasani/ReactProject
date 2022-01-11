@@ -168,6 +168,14 @@
       "name": "varshini23",
       "email": "adittya234@gmail.com",
       "id": 5
+    },
+    {
+      "name": "Aditya K",
+      "firstName": "Aditya",
+      "lastName": "Kotikalpudi",
+      "email": "aditya@gmail.com",
+      "password": "aditya123",
+      "id": 6
     }
   ],
   "sellers": [
@@ -407,21 +415,7 @@
       "id": 2
     },
     {
-      "date": "Mon, 10 Jan 2022 18:50:47 GMT",
-      "username": "varshini123456",
-      "productId": 1,
-      "return": false,
-      "sellername": "Madhesh Eletronics",
-      "productname": "Airpods 55",
-      "productbrand": "Apple",
-      "productprice": "3589",
-      "productquantity": "2",
-      "cid": "Ezvhh3P",
-      "cartQuantity": 1,
-      "id": 3
-    },
-    {
-      "date": "Mon, 10 Jan 2022 18:50:47 GMT",
+      "date": "Tue, 11 Jan 2022 09:10:54 GMT",
       "username": "varshini123456",
       "productId": 7,
       "return": false,
@@ -431,36 +425,36 @@
       "productprice": "34567",
       "productquantity": "3",
       "cid": "1",
-      "cartQuantity": 2,
-      "id": 4
-    },
-    {
-      "date": "Mon, 10 Jan 2022 18:50:47 GMT",
-      "username": "varshini123456",
-      "productId": 6,
-      "return": false,
-      "sellername": "Madhesh Eletronics",
-      "productname": "Earphones",
-      "productbrand": "OnePlus",
-      "productprice": "17",
-      "productquantity": "2",
-      "cid": "Ezvhh3P",
-      "cartQuantity": 1,
+      "cartQuantity": 3,
       "id": 5
     },
     {
-      "date": "Mon, 10 Jan 2022 18:50:47 GMT",
+      "date": "Tue, 11 Jan 2022 09:12:12 GMT",
       "username": "varshini123456",
-      "productId": 2,
+      "productId": 3,
       "return": false,
       "sellername": "Madhesh Eletronics",
-      "productname": "Earphones",
-      "productbrand": "OnePlus",
-      "productprice": "567",
-      "productquantity": "5",
-      "cid": "Ezvhh3P",
+      "productname": "Vivo 5080",
+      "productbrand": "Vivo",
+      "productprice": "45839",
+      "productquantity": "6",
+      "cid": "1",
       "cartQuantity": 1,
       "id": 6
+    },
+    {
+      "date": "Tue, 11 Jan 2022 09:29:57 GMT",
+      "username": "Aditya K",
+      "productId": 3,
+      "return": false,
+      "sellername": "Madhesh Eletronics",
+      "productname": "Vivo 5080",
+      "productbrand": "Vivo",
+      "productprice": "45839",
+      "productquantity": "6",
+      "cid": "1",
+      "cartQuantity": 3,
+      "id": 7
     }
   ]
 }
