@@ -55,8 +55,9 @@ const SellerNavbar = () => {
             variant="h2"
             
             component="div"
-            style={{fontFamily:'"The Nautigal", cursive',marginRight:30}}
+            style={{fontFamily:'"The Nautigal", cursive',marginRight:30, cursor : 'pointer'}}
             sx={{ mr: 5, display: { xs: 'none', md: 'flex' } }}
+            onClick = {() => navigate('/seller/home')}
           >
             Dream Basket
           </Typography>
