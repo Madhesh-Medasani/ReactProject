@@ -7,7 +7,7 @@ const SellerCreate = (props) => {
   return (
     <Create title='Create a Seller' {...props}>
       <SimpleForm>
-        <TextInput source='name' />
+        <TextInput source='sellername' />
         <TextInput source="gst" />
         <TextInput source='email' />
         <TextInput source='password' />

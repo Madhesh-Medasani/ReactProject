@@ -29,11 +29,12 @@ export default function SellerSignup() {
     // Giving conditiion on the input user is entering
       if(data.get('email').includes('@') && data.get('password').length>=8 && data.get('username').length>=5 && data.get('gst').length===15)
       {
+        console.log("hi")
         await axios.post("http://localhost:5000/sellers",{
-        name: data.get('username'),
-        gst: data.get('gst'),
+        sellername: data.get('username'),
         email: data.get('email'),
-        password: data.get('password')
+        password: data.get('password'),
+        gst: data.get('gst'),
         })
       navigate("/seller/login")
   

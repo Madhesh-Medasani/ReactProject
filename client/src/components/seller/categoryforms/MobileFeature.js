@@ -9,7 +9,7 @@ export default function MobileFeature() {
     const [features, setFeatures] = useState({
         feature: []
     })
-    const cid =1 // category id for Mobile
+    const cid ="61cf2fd30236a97a7bc3c4ca" // category id for Mobile
     const fetchFeature = ()=>{
         return fetch(`http://localhost:5000/categories/${cid}/features`).then((response)=>
             response.json()
@@ -37,7 +37,7 @@ export default function MobileFeature() {
                     disablePortal
                     id="mobileram"
                     name="ram"
-                    options={f.set.RAM} // contains the list of values [4,6,8,16] which displays as options
+                    options={f.RAM} // contains the list of values [4,6,8,16] which displays as options
                    
                     renderInput={(params) => <TextField {...params} label="RAM" name='ram'/>}
                     />
@@ -45,17 +45,17 @@ export default function MobileFeature() {
                     disablePortal
                     id="mobilestorage"
                     name="storage"
-                    options={f.set.Storage} // contains the list of values of storage which displays as options
+                    options={f.STORAGE} // contains the list of values of storage which displays as options
                    
                     renderInput={(params) => <TextField {...params} label="Storage" name="storage"/>}
                     />
                     <Autocomplete
                     disablePortal
                     id="mobilecolor"
-                    name="clour"
-                    options={f.set.color} // contains the list of values of colour which displays as options
+                    name="color"
+                    options={f.COLOR} // contains the list of values of colour which displays as options
                     
-                    renderInput={(params) => <TextField {...params} label="Colour" name="colour"/>}
+                    renderInput={(params) => <TextField {...params} label="Colour" name="color"/>}
                     />
                     </div>
                     

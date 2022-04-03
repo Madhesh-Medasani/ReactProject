@@ -8,7 +8,7 @@ const BrandCreate = (props) => {
     <Create title='Create a Brand' {...props}>
       <SimpleForm>
         <TextInput source='Name' validate={[required()]}/>
-        <ReferenceInput label="Categoy" source="categoryId" reference="categories" validate={[required()]}>
+        <ReferenceInput label="Categoy" source="Category" reference="categories" validate={[required()]}>
         <SelectInput optionText="Name" />
         </ReferenceInput>
         

@@ -34,9 +34,9 @@ function UserSignUp(){
         // eslint-disable-next-line no-console
         if( data.get('username').length >=5 && data.get('email').includes('@') && data.get('password').length>=8){
             await axios.post("http://localhost:5000/users",{
-                name: data.get('username'),
-                firstName: data.get('firstName'),
-                lastName : data.get('lastName'),
+                username: data.get('username'),
+                // firstName: data.get('firstName'),
+                // lastName : data.get('lastName'),
                 email: data.get('email'),
                 password: data.get('password')
                 })
@@ -80,7 +80,7 @@ function UserSignUp(){
                             </Typography>
                             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
                                 <Grid container spacing={2}>
-                                <Grid item xs={12} sm={6}>
+                                {/* <Grid item xs={12} sm={6}>
                                     <TextField
                                     autoComplete="given-name"
                                     name="firstName"
@@ -90,8 +90,8 @@ function UserSignUp(){
                                     label="First Name"
                                     autoFocus
                                     />
-                                </Grid>
-                                <Grid item xs={12} sm={6}>
+                                </Grid> */}
+                                {/* <Grid item xs={12} sm={6}>
                                     <TextField
                                     required
                                     fullWidth
@@ -100,7 +100,7 @@ function UserSignUp(){
                                     name="lastName"
                                     autoComplete="family-name"
                                     />
-                                </Grid>
+                                </Grid> */}
                                 <Grid item xs={12} >
                                     <TextField
                                     autoComplete="given-name"

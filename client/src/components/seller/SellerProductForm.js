@@ -9,7 +9,7 @@ import axios from "axios";
 import HeadphoneFeatures from './categoryforms/HeadphoneFeatures';
 import {useNavigate} from 'react-router-dom'
 
-function SellerProductForm({brandname, sellername, cid}) {
+function SellerProductForm({brandname, sellername, cid,sellerId}) {
     //For storing the brands information based on data and updating in {brand: []}
     const [brandsinfo,setBrandsinfo] = useState({
         brand: []
@@ -40,20 +40,23 @@ function SellerProductForm({brandname, sellername, cid}) {
         //    console.log(pair)
         //     console.log(pair[0] + ': ' + pair[1]);
         }
-        obj["cid"]=cid; // Storing category id from reducer  and storing in Product Object
+        obj["Category"]=cid; // Storing category id from reducer  and storing in Product Object
+        obj["sellerId"]=sellerId;
         await axios.post("/sellerproduct",obj); // posting the data to sever using axios
-
-        console.log(obj);
-        console.log({
-            sellername: fdata.get('sellername'),
-            productname: fdata.get('productname'),
-            produtbrand: fdata.get('productbrand'),
-            productprice: fdata.get('productprice'),
-            ram: fdata.get('ram'),
-            storage: fdata.get('storage'),
-            colour: fdata.get('colour') ,
-            qty : fdata.get('productquantity')
-        })
+        console.log(
+            sellerId
+            
+            // sellername: fdata.get('sellername'),
+            // productname: fdata.get('productname'),
+            // produtbrand: fdata.get('productbrand'),
+            // productprice: fdata.get('productprice'),
+            // ram: fdata.get('ram'),
+            // storage: fdata.get('storage'),
+            // colour: fdata.get('colour') ,
+            // connectorType:fdata.get('connectorType'),
+            // qty : fdata.get('productquantity'),
+            
+        )
 
         navigate('/seller/productList')
     }
@@ -130,13 +133,13 @@ function SellerProductForm({brandname, sellername, cid}) {
             />
             
             {
-                cid==="1" && <MobileFeature /> //Form for Mobile features
+                cid==="61cf2fd30236a97a7bc3c4ca" && <MobileFeature /> //Form for Mobile features
             }
             {
-                cid==="2" && <LaptopFeature /> // Form for Laptop features
+                cid==="61cf30c10236a97a7bc3c4cf" && <LaptopFeature /> // Form for Laptop features
             }
             {
-                cid==="Ezvhh3P" && <HeadphoneFeatures />
+                cid==="624696fe22430c408c3efe61" && <HeadphoneFeatures />
             }
 
                 <Button

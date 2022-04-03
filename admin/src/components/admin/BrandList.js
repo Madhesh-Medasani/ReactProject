@@ -18,7 +18,7 @@ const BrandList = (props) => {
       <Datagrid>
         <TextField source='id' />
         <TextField source='Name' />
-        <TextField source='categoryId' />
+        <TextField source='Category' />
         <EditButton basePath='/brands' />
         <DeleteButton basePath='/brands' />
       </Datagrid>

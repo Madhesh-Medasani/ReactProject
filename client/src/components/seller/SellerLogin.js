@@ -37,6 +37,7 @@ export default function SellerLogin() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     let sellername =""
+    let sellerId = ""
     if( data.get('email').includes('@') && data.get('password').length>=8)
     {
       fetch("http://localhost:5000/sellers")
@@ -46,7 +47,10 @@ export default function SellerLogin() {
             let a= (sellers) => {
                 for (let i=0;i<sellers.length;i++){
                     if(sellers[i].email===data.get('email') && sellers[i].password === data.get('password')){
-                        sellername = sellers[i].name 
+                        sellername = sellers[i].sellername
+                        console.log(sellers[i].id)
+                        sellerId = sellers[i].id
+                        console.log(sellerId)
                         return true;
                     }
                     
@@ -58,7 +62,7 @@ export default function SellerLogin() {
             if(authenticate)
             {
                 //seller state is send to other componnents after login 
-                sellerstore.dispatch({type:"loginSeller",payload: { sellername: sellername }})
+                sellerstore.dispatch({type:"loginSeller",payload: { sellername: sellername,sellerId:sellerId}})
                 
                 //navigate to seller home page
                navigate('/seller/home')

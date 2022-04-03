@@ -8,7 +8,7 @@ const SellerEdit = (props) => {
     <Edit title='Edit Seller' {...props}>
       <SimpleForm>
         <TextInput disabled source='id' />
-        <TextInput source='name' />
+        <TextInput source='sellername' />
         <TextInput source='email' />
       </SimpleForm>
     </Edit>

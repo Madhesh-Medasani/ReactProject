@@ -347,6 +347,7 @@
       "address": "Sapthagiri Enclave,Pappula street,Nellore",
       "id": 1
     }
+
   ],
   "cart": [
     {
@@ -386,6 +387,19 @@
     }
   ],
   "orders": [
-    
+    {
+      "date": "Mon, 28 Mar 2022 06:42:26 GMT",
+      "username": "Aditya K",
+      "productId": 2,
+      "return": false,
+      "sellername": "Madhesh Eletronics",
+      "productname": "Earphones",
+      "productbrand": "OnePlus",
+      "productprice": "567",
+      "productquantity": "5",
+      "cid": "Ezvhh3P",
+      "cartQuantity": 3,
+      "id": 1
+    }
   ]
 }

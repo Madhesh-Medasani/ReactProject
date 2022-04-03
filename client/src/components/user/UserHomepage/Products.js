@@ -34,10 +34,6 @@ function Products({username}){
          
      })
         
-
-    
-
-        
      }
 
     useEffect(() => {

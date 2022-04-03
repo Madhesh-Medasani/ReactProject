@@ -8,7 +8,7 @@ export default function LaptopFeatures() {
     const [features, setFeatures] = useState({
         feature: []
     })
-    const cid =2 // category id for Laptop
+    const cid ="61cf30c10236a97a7bc3c4cf" // category id for Laptop
     const fetchFeature = ()=>{
         return fetch(`http://localhost:5000/categories/${cid}/features`).then((response)=>
             response.json()
@@ -33,21 +33,21 @@ export default function LaptopFeatures() {
                     <Autocomplete
                     disablePortal
                     id="Laptopram"
-                    options={f.set.RAM} // contains the list of values [4,6,8,16] which displays as options
+                    options={f.RAM} // contains the list of values [4,6,8,16] which displays as options
                     sx={{ width: 300 }}
                     renderInput={(params) => <TextField {...params} label="RAM"name="ram"/>}
                     />
                     <Autocomplete
                     disablePortal
                     id="laptopstorage"
-                    options={f.set.Storage} // contains the list of values of storage which displays as options
+                    options={f.STORAGE} // contains the list of values of storage which displays as options
                     sx={{ width: 300 }}
                     renderInput={(params) => <TextField {...params} label="Storage" name='storage'/>}
                     />
                     <Autocomplete
                     disablePortal
                     id="laptopstorage"
-                    options={f.set.color} // contains the list of values of storage which displays as options
+                    options={f.COLOR} // contains the list of values of storage which displays as options
                     sx={{ width: 300 }}
                     renderInput={(params) => <TextField {...params} label="color" name='color'/>}
                     />

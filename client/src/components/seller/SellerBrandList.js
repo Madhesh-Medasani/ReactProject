@@ -9,8 +9,9 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid'
 import SellerProductForm from './SellerProductForm'
 import SellerNavbar from './SellerNavbar'
-function SellerBrandList({brandname, sellername, categoryid}) {
+function SellerBrandList({brandname, sellername, categoryid,sellerId}) {
     const [categoryId,setCategoryId] = useState("");
+    const [categoryName,setCategoryName]=useState("");
     const [brandinfo,setBrandinfo] = useState({
         brand: []
     })
@@ -40,10 +41,12 @@ function SellerBrandList({brandname, sellername, categoryid}) {
             )
     }
     const handleid=(cid)=>{
+        
         sellerstore.dispatch({type: "sendCategoryid",payload: {cid: cid}});
+        
         fetchdata(cid)
         setCategoryId(cid);
-        console.log(cid);
+        
     }
     const handleClick= (b1)=>{
         sellerstore.dispatch({type: "sendBrand",payload: {brand: b1}});
@@ -106,6 +109,7 @@ function SellerBrandList({brandname, sellername, categoryid}) {
                   </Typography>
                  
                       <Button variant="contained" onClick={()=>{
+                          setCategoryName(c.Name)
                           handleid(c.id);
                       }}>select</Button>
                   
@@ -117,7 +121,7 @@ function SellerBrandList({brandname, sellername, categoryid}) {
             <Grid item>
     
   
-            <SellerProductForm cid={categoryid}brandname={brandname} sellername={sellername}/>
+            <SellerProductForm cid={categoryid}brandname={brandname} sellername={sellername} sellerId={sellerId}/>
             </Grid>
             
             
@@ -130,8 +134,7 @@ function SellerBrandList({brandname, sellername, categoryid}) {
     )
 }
 const mapStateToProps= (state)=>{   // mapping state to props to send brandname and categoryId
-    console.log(state.brandReducer.brand)
-    
+   
     return {
         brandname: state.brandReducer.brand,
         categoryid: state.categoryReducer.cid

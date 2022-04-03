@@ -15,7 +15,7 @@ const SellerList = (props) => {
     <List {...props}>
       <Datagrid>
         <TextField source='id' />
-        <TextField source='name' />
+        <TextField source='sellername' />
         <TextField source='gst'/>
         <EmailField source='email' />
         <EditButton basePath='/sellers' />

@@ -9,7 +9,7 @@ export default function HeadphoneFeatures() {
     const [features, setFeatures] = useState({
         feature: []
     })
-    const cid = "Ezvhh3P"// category id for Headphone
+    const cid = "624696fe22430c408c3efe61"// category id for Headphone
     const fetchFeature = ()=>{
         return fetch(`http://localhost:5000/categories/${cid}/features`).then((response)=>
             response.json()
@@ -34,14 +34,14 @@ export default function HeadphoneFeatures() {
                     <Autocomplete
                     disablePortal
                     id="Headphonecolor"
-                    options={f.set.color} // contains the list of values [4,6,8,16] which displays as options
+                    options={f.COLOR} // contains the list of values [4,6,8,16] which displays as options
                     sx={{ width: 300 }}
                     renderInput={(params) => <TextField {...params} label="color"name="color"/>}
                     />
                     <Autocomplete
                     disablePortal
                     id="HeadphoneconnectorType"
-                    options={f.set.connector_type} // contains the list of values of storage which displays as options
+                    options={f.CONNECTOR_TYPE} // contains the list of values of storage which displays as options
                     sx={{ width: 300 }}
                     renderInput={(params) => <TextField {...params} label="connectorType" name='connectorType'/>}
                     />
