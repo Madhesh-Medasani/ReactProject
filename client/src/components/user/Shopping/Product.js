@@ -7,19 +7,42 @@ import sellerstore from "../../seller/sellerstore";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 import {connect} from "react-redux"
+import { useEffect, useState } from "react";
 
 // displaying the product with its features
 
-const Product = ({product,username,cart}) => {
+const Product = ({product,username,userId}) => {
     const classes =useStyles();
 
-    const addToCart = (product,username,cart) =>{  // Add to cart functionality
-        console.log(username)
+    const [cartinfo,setCartinfo] = useState({
+        cart: []
+      })
+    
+      const fetchData = ()=> {
+        const url=`http://localhost:5000/users/${userId}/cart`
+        return fetch(url).then((response)=>response.json()).then((data)=>{
+          console.log(data)
+          setCartinfo({
+          cart: data
+        })
+      })
+    }
+    
+    const {cart} = cartinfo
+
+    useEffect(() => {
+        fetchData()
+        
+    }, []);
+
+    const addToCart = async (product,username,cart,userId) =>{  // Add to cart functionality
+        console.log(cart)
         let flag = 0
         for(let c of cart){
             if(c.id === product.id){
                 if(c.qty < product.productquantity){    // checking if stock of product is available
                     flag =1
+                    axios.patch(`http://localhost:5000/users/${product.userId}/cart/${product.id}`,{qty: product.qty + 1})
                     sellerstore.dispatch({type : "ADD_TO_CART", payload : {item : product, username : username }})
                 }
                 else{
@@ -30,7 +53,25 @@ const Product = ({product,username,cart}) => {
             
         }
         if(flag === 0){
-            
+            const url = `http://localhost:5000/users/${userId}/cart`
+                    await axios.post(url,
+                        {
+                            cid: product.Category,
+                            pid: product.id,
+                            sellername: product.sellername,
+                            sellerId: product.sellerId,
+                            productname: product.productname,
+                            productbrand: product.productbrand,
+                            productprice: product.productprice,
+                            ram: product.ram,
+                            storage: product.storage,
+                            color: product.color,
+                            connectorType: product.connectorType,
+                            productquantity: product.productquantity,
+                            qty: 1
+                        }
+                    )
+                
                 sellerstore.dispatch({type : "ADD_TO_CART", payload : {item : product, username : username }})
         }
     }
@@ -62,7 +103,7 @@ const Product = ({product,username,cart}) => {
             <CardActions disableSpacing className={classes.cardActions}>
             <div className='mt-3'>
            
-            <button onClick={(e) => addToCart(product,username,cart)}
+            <button onClick={(e) => addToCart(product,username,cart,userId)}
                     className="btn cart-btn">Add To Cart</button>
                     
    
@@ -87,7 +128,8 @@ const Product = ({product,username,cart}) => {
     const mapStateToProps = (state) => {
         return {
           username: state.userReducer.username,
-          cart : state.cartReducer.cart
+        //   cart : state.cartReducer.cart,
+          userId: state.userReducer.userId
         };
       };
 export default connect(mapStateToProps)(Product);

@@ -17,7 +17,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 const theme = createTheme();
 
 
-function UserProfile({username}) {
+function UserProfile({username,userId}) {
     const [firstName, processFirstName] = useState("");
     const [lastName, processLastName] = useState("");
 
@@ -27,7 +27,7 @@ function UserProfile({username}) {
 
     const navigate = useNavigate()
     // taking the details from user for profile and saving 
-    const save = () => {
+    const save = (userId) => {
         var addressInfo = {
             "username" : username,
             "userfirstname" : firstName,
@@ -36,7 +36,7 @@ function UserProfile({username}) {
             "address" : address
         }
 
-        axios.post("http://localhost:5000/userprofile", addressInfo)
+        axios.post(`http://localhost:5000/users/${userId}/userprofile`, addressInfo)
 
         navigate('/user/home')
 
@@ -127,7 +127,7 @@ function UserProfile({username}) {
                   fullWidth
                   variant="contained"
                   sx={{ mt: 3, mb: 2 }}
-                  onClick={save}
+                  onClick={()=>save(userId)}
                 >
                   Submit
                 </Button>
@@ -156,7 +156,8 @@ function UserProfile({username}) {
 }
 const mapStateToProps = (state) => {
     return {
-        username : state.userReducer.username
+        username : state.userReducer.username,
+        userId: state.userReducer.userId
     }
 }
 

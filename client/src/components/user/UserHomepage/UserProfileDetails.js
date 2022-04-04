@@ -9,11 +9,11 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Card from "@material-ui/core/Card"
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import { List, ListItem, ListItemText } from '@material-ui/core/';
-function UserProfileDetails({username}) {
+function UserProfileDetails({username,userId}) {
     const [profile, setProfile] = useState({profiles : []})
 
-    const fetchData = (username) =>{
-        return fetch(`http://localhost:5000/userprofile?username=${username}`)
+    const fetchData = (userId) =>{
+        return fetch(`http://localhost:5000/user/${userId}/userprofile`)
             .then((response) => response.json())
             .then((data)=> {
                 setProfile({profiles : data
@@ -23,7 +23,7 @@ function UserProfileDetails({username}) {
     }
 
     useEffect(()=>{
-        fetchData(username)
+        fetchData(userId)
     },[])
 
 
@@ -63,7 +63,7 @@ function UserProfileDetails({username}) {
                 <ListItemText primary="Last Name" secondary={profile.userlastname} />
               </ListItem>
               <ListItem>
-                <ListItemText primary="Adress" secondary={profile.address} />
+                <ListItemText primary="Address" secondary={profile.address} />
               </ListItem>
               
               <ListItem>
@@ -89,7 +89,9 @@ function UserProfileDetails({username}) {
 }
 const mapStateToProps = (state) => {
     return {
-        username : state.userReducer.username
+        username : state.userReducer.username,
+        userId: state.userReducer.userId
+
     }
 }
 

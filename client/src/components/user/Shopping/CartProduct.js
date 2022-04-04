@@ -12,16 +12,21 @@ import {
 import { DeleteRounded } from "@material-ui/icons";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import axios from "axios"
 
 const CartProduct = ({cartpro,cart}) => {
   // Code to delete an item from cart
-  const deleteFromCart = () => {
+  const deleteFromCart = async (product) => {
     const action = {
       type: actionTypes.DELETE_FROM_CART,
       payload: {
         item: cartpro,
       },
     };
+
+    console.log(product.userId)
+    await axios.delete(`http://localhost:5000/users/${product.userId}/cart/${product.id}`)
+    
     // Deleting an item from cart in state
     sellerstore.dispatch(action);
     console.log("deleted a book in cart");
@@ -31,6 +36,7 @@ const CartProduct = ({cartpro,cart}) => {
   // Increment the qunatity of item
   const Increment = (product) => {
     if(product.qty < product.productquantity){
+      axios.patch(`http://localhost:5000/users/${product.userId}/cart/${product.id}`,{qty: product.qty + 1})
       sellerstore.dispatch({type : "INCREMENT_QUANTITY", payload : {item : product}})
     }
     else{
@@ -43,10 +49,12 @@ const CartProduct = ({cartpro,cart}) => {
   const Decrement = (product) => {
 
     if(product.qty === 1){
-      deleteFromCart()  // deleting item from cart if quantity is less than 1
+      deleteFromCart(product)  // deleting item from cart if quantity is less than 1
     }
 
     else{
+      
+      axios.patch(`http://localhost:5000/users/${product.userId}/cart/${product.id}`,{qty: product.qty - 1})
       sellerstore.dispatch({type : "DECREMENT_QUANTITY", payload : {item : product}})
 
     }
@@ -68,7 +76,7 @@ const CartProduct = ({cartpro,cart}) => {
             <Card>
               <CardHeader
                 action={
-                  <IconButton onClick={deleteFromCart} color="secondary">
+                  <IconButton onClick={()=>deleteFromCart(cartpro)} color="secondary">
                     <DeleteRounded fontSize="large" />
                   </IconButton>
                 }

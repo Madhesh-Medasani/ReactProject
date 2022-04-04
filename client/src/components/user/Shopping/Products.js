@@ -28,7 +28,7 @@ const Products = ({brandname, username}) => {
         console.log(cat)
 
         if(brandname === "" || brandname === undefined){
-            return fetch(`http://localhost:5000/sellerproduct?cid=${cat}`).then((response)=>
+            return fetch(`http://localhost:5000/categories/${cat}/sellerproduct`).then((response)=>
          response.json()).then((data)=>{
              console.log(data)
              setProductinfo({
@@ -40,7 +40,7 @@ const Products = ({brandname, username}) => {
         }
 
     else{
-        return fetch(`http://localhost:5000/sellerproduct?cid=${cat}&productbrand=${brandname}`).then((response)=>
+        return fetch(`http://localhost:5000/categories/${cat}/brands/${brandname}/sellerproduct`).then((response)=>
          response.json()).then((data)=>{
              console.log(data)
              setProductinfo({
@@ -62,7 +62,7 @@ const Products = ({brandname, username}) => {
      const fetchdata1 = (categoryId)=>{
 
         let url ="http://localhost:5000/categories/" + categoryId + "/brands"
-
+        console.log(url)
         return fetch(url).then((response)=>
          response.json()).then((data)=>{
              console.log(data)
@@ -108,6 +108,7 @@ const Products = ({brandname, username}) => {
         event.preventDefault();
         const fdata = new FormData(event.currentTarget);
         let brand = fdata.get('filterbrand')
+        console.log(brand)
         sellerstore.dispatch({type: "sendBrand",payload: {brand: brand}})
         fetchdata(cat,brand)
     }

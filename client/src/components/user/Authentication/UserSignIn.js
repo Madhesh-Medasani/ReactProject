@@ -33,6 +33,7 @@ function UserSignIn(){
         // eslint-disable-next-line no-console
 
         let username =""
+        let userId = ""
     if( data.get('email').includes('@') && data.get('password').length>=8)
     {
       fetch("http://localhost:5000/users")
@@ -42,7 +43,9 @@ function UserSignIn(){
             let a= (users) => {
                 for (let i=0;i<users.length;i++){
                     if(users[i].email===data.get('email') && users[i].password === data.get('password')){
-                        username = users[i].name 
+                        username = users[i].username 
+                        userId = users[i].id
+                        console.log(userId)
                         return true;
                     }
                     
@@ -54,7 +57,7 @@ function UserSignIn(){
             if(authenticate)
             {
                 //user state is send to other components after login 
-                sellerstore.dispatch({type:"loginUser",payload: { username: username }})
+                sellerstore.dispatch({type:"loginUser",payload: { username: username, userId: userId }})
                 
                 //navigate to user home page
                navigate('/user/home')

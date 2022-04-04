@@ -9,16 +9,41 @@ import { Typography, Button } from "@material-ui/core";
 import Header from "../UserHomepage/Header"
 import {useState, useEffect} from "react"
 
-function Cart({ cart, username }) {
+function Cart({userId, username }) {
   const history = useNavigate();
+
+  const [cartinfo,setCartinfo] = useState({
+    cart: []
+  })
+
+  const fetchData = ()=> {
+    const url=`http://localhost:5000/users/${userId}/cart`
+    return fetch(url).then((response)=>response.json()).then((data)=>{
+      console.log(data)
+      setCartinfo({
+      cart: data
+    })
+  })
+}
+
+const {cart} = cartinfo
+
+const deleteFromCart= async (item)=>{
+  await axios.delete(`http://localhost:5000/users/${item.userId}/cart/${item.id}`).then((res)=>{
+    console.log("deleted Successfully").catch((err) => {
+      console.log(err);
+    });
+  })
+}
+
 
   // Code to checkout from cart
   // Date is class which returns the current date in milliseconds. toUTCString() returns the readable string format of the date and time(GMT)
   const placeOrder = () => {
     cart.forEach((item) => {
       let order = {
-        date: new Date().toUTCString(),
-        username: item.username,
+        // date: new Date().toUTCString(),
+        // username: item.username,
         productId: item.id,
         return: false,
         sellername : item.sellername,
@@ -28,13 +53,14 @@ function Cart({ cart, username }) {
         productquantity: item.productquantity,
         cid:item.cid,
         cartQuantity : item.qty,
+        userId: item.userId,
+        sellerId: item.sellerId
       };
       //Hitting the url with  post method to add an order in json
-      axios
-        .post(`http://localhost:5000/orders`, order)
-        .then((res) => {
+      axios.post(`http://localhost:5000/users/${item.userId}/orders`, order).then((res) => {
           console.log("product" + item.id + " added to orders table");
           setTimeout(() => {
+            deleteFromCart(item)
             // Resetting the cart after checkout
             sellerstore.dispatch({ type: actionTypes.RESET_CART });
             console.log("Cart Reset");
@@ -54,6 +80,8 @@ function Cart({ cart, username }) {
   // Calculating TotalPrice and TotalQuantity of items in cart by iterating over cart items.
 
   useEffect( () => {
+
+    fetchData()
     let TotalQty = 0
     let TotalPrice = 0
 
@@ -100,8 +128,9 @@ function Cart({ cart, username }) {
 // Mapping username, cart from state to Component
 const mapStateToProps = (state) => {
   return {
-    cart: state.cartReducer.cart,
+    // cart: state.cartReducer.cart,
     username: state.userReducer.username,
+    userId: state.userReducer.userId,
   };
 };
 

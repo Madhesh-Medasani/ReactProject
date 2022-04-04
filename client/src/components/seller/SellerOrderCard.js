@@ -12,8 +12,8 @@ const SellerProductCard = props => {
 
     const [profile, setProfile] = useState({profiles : []})
 
-    const fetchData = (username) =>{    // This get the user profile details
-        return fetch(`http://localhost:5000/userprofile?username=${username}`)
+    const fetchData = (userId) =>{    // This get the user profile details
+        return fetch(`http://localhost:5000/user/${userId}/userprofile`)
             .then((response) => response.json())
             .then((data)=> {
                 setProfile({profiles : data
@@ -23,7 +23,7 @@ const SellerProductCard = props => {
     }
  
     useEffect(()=>{
-        fetchData(props.product.username)
+        fetchData(props.product.userId)
     },[])
 
 

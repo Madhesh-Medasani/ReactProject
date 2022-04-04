@@ -9,7 +9,8 @@ const userReducer =(state=initialState,action)=>{
             console.log(action.payload.username)
             return{
                 ...state,
-                username: action.payload.username
+                username: action.payload.username,
+                userId: action.payload.userId
             }
         case "logout":
             return{

@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 
-function Orders({username}){
+function Orders({username,userId}){
 
     const classes = useStyles();
 
@@ -55,22 +55,22 @@ function Orders({username}){
         orders: []
     })
     // fetch the data of brands and set the data into {brand : []}
-    const fetchdata = ()=>{
-       return fetch(`http://localhost:5000/orders?_sort=date&_order=desc&username=${username}`).then((response)=>   // fetching the orders of the current user
+    const fetchdata = (userId)=>{
+       return fetch(`http://localhost:5000/users/${userId}/orders`).then((response)=>   // fetching the orders of the current user
         response.json()).then((data)=>{
             console.log(data)
             setOrderinfo({
             orders: data
         })
        
-        
+           
     })
-    }
+    } 
     
 
 
     useEffect(()=>{
-        fetchdata();
+        fetchdata(userId);
 
     },[])
     
@@ -111,6 +111,7 @@ function Orders({username}){
 const mapStateToProps = (state) => {
     return {
       username: state.userReducer.username,
+      userId: state.userReducer.userId
     };
   };
 export default connect(mapStateToProps)(Orders);

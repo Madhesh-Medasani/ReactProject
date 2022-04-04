@@ -4,13 +4,15 @@ import { Grid } from "@material-ui/core";
 import SellerNavbar from "./SellerNavbar";
 import SellerOrderCard from "./SellerOrderCard";
 import { useState, useEffect } from "react";
-const SellerOrders = ({sellername})=>{
+import { connect } from "react-redux";
+
+const SellerOrders = ({sellername,sellerId})=>{
     const [orderinfo,setOrderinfo] = useState({
         orders: []
     })
     // fetch the data of brands and set the data into {brand : []}
-    const fetchdata = ()=>{   // To fetch orders of particular seller
-       return fetch(`http://localhost:5000/orders?sellername=${sellername}`).then((response)=>
+    const fetchdata = (sellerId)=>{   // To fetch orders of particular seller
+       return fetch(`http://localhost:5000/sellers/${sellerId}/orders`).then((response)=>
         response.json()).then((data)=>{
             console.log(data)
             setOrderinfo({
@@ -24,7 +26,7 @@ const SellerOrders = ({sellername})=>{
 
 
     useEffect(()=>{
-        fetchdata();
+        fetchdata(sellerId);
 
     },[])
     
@@ -61,4 +63,13 @@ const SellerOrders = ({sellername})=>{
     );
 }
 
-export default SellerOrders;
+const mapStateToProps = (state) => {
+    return {
+      // cart: state.cartReducer.cart,
+      sellername: state.sellerReducer.sellername,
+      sellerId: state.sellerReducer.sellerId,
+    };
+  };
+  
+
+export default connect(mapStateToProps)(SellerOrders);
