@@ -36,6 +36,26 @@ const deleteFromCart= async (item)=>{
   })
 }
 
+const deleteFromProduct= async (item)=>{
+  await axios.delete(`http://localhost:5000/users/${item.userId}/sellerproduct/${item.pid}`).then((res)=>{
+    console.log("product deleted Successfully").catch((err) => {
+      console.log(err);
+    });
+  })
+}
+
+const changeQuantity = async(item) =>{
+  if(item.productquantity === 1){
+    deleteFromProduct(item)  // deleting item from cart if quantity is less than 1
+  }
+
+  else{
+    
+    axios.patch(`http://localhost:5000/users/${item.userId}/sellerproduct/${item.pid}`,{productquantity: item.productquantity - 1})
+
+  }
+}
+
 
   // Code to checkout from cart
   // Date is class which returns the current date in milliseconds. toUTCString() returns the readable string format of the date and time(GMT)
@@ -44,7 +64,7 @@ const deleteFromCart= async (item)=>{
       let order = {
         // date: new Date().toUTCString(),
         // username: item.username,
-        productId: item.id,
+        productId: item.pid,
         return: false,
         sellername : item.sellername,
         productname: item.productname,
@@ -60,6 +80,7 @@ const deleteFromCart= async (item)=>{
       axios.post(`http://localhost:5000/users/${item.userId}/orders`, order).then((res) => {
           console.log("product" + item.id + " added to orders table");
           setTimeout(() => {
+            changeQuantity(item)
             deleteFromCart(item)
             // Resetting the cart after checkout
             sellerstore.dispatch({ type: actionTypes.RESET_CART });

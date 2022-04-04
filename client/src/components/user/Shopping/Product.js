@@ -18,7 +18,7 @@ const Product = ({product,username,userId}) => {
         cart: []
       })
     
-      const fetchData = ()=> {
+      const fetchData = (userId)=> {
         const url=`http://localhost:5000/users/${userId}/cart`
         return fetch(url).then((response)=>response.json()).then((data)=>{
           console.log(data)
@@ -31,18 +31,18 @@ const Product = ({product,username,userId}) => {
     const {cart} = cartinfo
 
     useEffect(() => {
-        fetchData()
+        fetchData(userId)
         
-    }, []);
+    }, [cart]);
 
     const addToCart = async (product,username,cart,userId) =>{  // Add to cart functionality
         console.log(cart)
         let flag = 0
         for(let c of cart){
-            if(c.id === product.id){
+            if(c.pid === product.id){
                 if(c.qty < product.productquantity){    // checking if stock of product is available
                     flag =1
-                    axios.patch(`http://localhost:5000/users/${product.userId}/cart/${product.id}`,{qty: product.qty + 1})
+                    axios.patch(`http://localhost:5000/users/${product.userId}/cart/${c.id}`,{qty: c.qty + 1})
                     sellerstore.dispatch({type : "ADD_TO_CART", payload : {item : product, username : username }})
                 }
                 else{

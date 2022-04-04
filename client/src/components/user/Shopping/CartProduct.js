@@ -80,7 +80,7 @@ const CartProduct = ({cartpro,cart}) => {
                     <DeleteRounded fontSize="large" />
                   </IconButton>
                 }
-                title={"Your Product ID -  " + cartpro.id}
+                title={"Your Product ID -  " + cartpro.pid}
               />
               <CardContent>
                 <Box display="flex" flexDirection="row">

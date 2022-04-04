@@ -61,10 +61,10 @@ function HeaderButtons({username, quantity}){
             <NavLink to="/user/profile"><AccountCircleIcon /></NavLink>
 
             <Box className={classes.container}>
-                <Badge badgeContent={quantity} color="secondary">
+                {/* <Badge badgeContent={} color="secondary"> */}
                     
                     <ShoppingCartIcon  />
-                </Badge>
+                {/* </Badge> */}
                     <NavLink to="/user/cart">
                         <Typography style={{marginLeft : '10px'}}>Cart</Typography>
                     </NavLink>
