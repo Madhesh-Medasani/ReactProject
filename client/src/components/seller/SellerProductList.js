@@ -5,7 +5,7 @@ import SellerNavbar from "./SellerNavbar";
 import SellerProductCard from "../../SellerProductCard";
 import { useState, useEffect } from "react";
 
-const SellerProductList = ({sellername}) => {
+const SellerProductList = ({sellername,sellerId}) => {
     
     const [spinfo,setSpinfo] = useState({
         products: []
@@ -13,7 +13,7 @@ const SellerProductList = ({sellername}) => {
 
      const fetchdata = ()=>{   // Fetching all products added by current seller
   
-        let url ="http://localhost:5000/sellerproduct?sellername=" + sellername
+        let url =`http://localhost:5000/seller/${sellerId}/sellerproduct`
 
         return fetch(url).then((response)=>
          response.json()).then((data)=>{

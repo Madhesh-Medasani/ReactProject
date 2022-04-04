@@ -30,7 +30,7 @@ function App({sellername,username,sellerId}) {
         <Route exact path='/seller/login' element={<SellerLogin/>} />
         <Route exact path='/seller/signup' element={<SellerSignup/>} />
         <Route exact path="/seller/home" element={<SellerHomepage sellername={sellername}/>} />
-        <Route exact path='/seller/productList' element={<SellerProductList sellername={sellername}/>} />
+        <Route exact path='/seller/productList' element={<SellerProductList sellername={sellername} sellerId={sellerId}/>} />
         <Route exact path='/seller/brands' element={<SellerBrandList sellername={sellername} sellerId={sellerId}/>} />
         <Route exact path='/seller/profile' element={<SellerProfileDetails sellername={sellername}/>} />
         <Route exact path='/seller/orders' element={<SellerOrders sellername={sellername}/>} />
